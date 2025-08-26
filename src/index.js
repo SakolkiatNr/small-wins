@@ -1,6 +1,7 @@
 import "./styles.css";
 import { logo } from "./content/sidebar";
-// import { greeting } from "./greeting.js";
+import { sideBarBtns } from "./content/sidebar";
 
-// console.log('lmao');
-logo;
+const target = document.querySelector('.sidebar');
+target.append(logo);
+target.append(sideBarBtns);
