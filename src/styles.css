@@ -8,6 +8,9 @@
     color: var(--font-color);
 }
 
+body {
+    display: flex;
+}
 
 .sidebar-btns {
     display: flex;

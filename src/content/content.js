@@ -1,7 +1,7 @@
 function headerText() {
     const header = document.createElement('h1');
-    headTarget.classList.add('content-header');
-    headTarget.textContent = 'lmao';
+    header.classList.add('content-header');
+    header.textContent = 'lmao';
 
     return header;
 }
@@ -21,8 +21,6 @@ function addTaskBtn() {
 }
 
 function contentContainer() {
-    headerText();
-    
     // create container for tasks and addTaskBtn
     const container = document.createElement('div');
     container.classList.add('content-container');
@@ -31,6 +29,7 @@ function contentContainer() {
     return container;
 }
 
-function renderContent(target) {
-    target.append(contentContainer());
+export function renderContent(target) {
+    target.append(headerText(),contentContainer());
+    console.log('content.js is working');
 }
