@@ -52,6 +52,7 @@ function toggleLightDarkBtn() {
 export const sidebarBtnsGrp1 = [
     sidebarBtn('Inbox', 'inbox-btn'),
     sidebarBtn('Today', 'today-btn'),
+    sidebarBtn('This Week', 'thisweek-btn'),
     sidebarBtn('Upcoming', 'upcoming-btn'),
     sidebarBtn('Priorities', 'priorities-btn'),
 ]
