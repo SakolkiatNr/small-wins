@@ -1,5 +1,3 @@
-// Export
-
 const LOGO_NAME = 'Small wins';
 
 function createLogo(name) {
@@ -18,14 +16,14 @@ function sidebarBtn(name, className) {
     // console.log(typeof(btn));
     return btn;
 }
-
-function createSidebarContainer(group, items) {
-    const sidebarContainer = document.createElement('div');
-    sidebarContainer.classList.add('sidebar-btns', group);
-    items.forEach(item => sidebarContainer.append(item));
+// Nav container
+function createNavContainer(group, items) {
+    const navContainer = document.createElement('nav');
+    navContainer.classList.add('sidebar-btns', group);
+    items.forEach(item => navContainer.append(item));
     
     console.log('status: sidebar container is working')
-    return sidebarContainer;
+    return navContainer;
 }
 
 const sidebarBtnsGrp1 = [
@@ -35,7 +33,32 @@ const sidebarBtnsGrp1 = [
     sidebarBtn('Priorities', 'priorities-btn'),
 ]
 
+// Project tag container
+function projectNav() {
+    const projectNav = document.createElement('nav');
+    projectNav.classList.add('pj-nav-container');
+
+    const projectBtn = sidebarBtn('Projects', 'project-nav');
+    
+    const projectContainer = document.createElement('div');
+    projectContainer.classList.add('projects-container');
+
+    projectNav.append(projectBtn, projectContainer);
+
+    return projectNav;
+}
+
+
+
+
+
+
+
+// function project
+
 export default function renderSidebar(target) {
     target.append(createLogo(LOGO_NAME));
-    target.append(createSidebarContainer('sb-container1', sidebarBtnsGrp1));
+    target.append(createNavContainer('sb-container1', sidebarBtnsGrp1));
+    target.append(projectNav());
 }
+
