@@ -19,6 +19,15 @@ function sidebarBtn(name, className) {
     return btn;
 }
 
+function createSidebarContainer(group, items) {
+    const sidebarContainer = document.createElement('div');
+    sidebarContainer.classList.add('sidebar-btns', group);
+    items.forEach(item => sidebarContainer.append(item));
+    
+    console.log('status: sidebar container is working')
+    return sidebarContainer;
+}
+
 const sidebarBtnsGrp1 = [
     sidebarBtn('Inbox', 'inbox-btn'),
     sidebarBtn('Today', 'today-btn'),
@@ -26,9 +35,7 @@ const sidebarBtnsGrp1 = [
     sidebarBtn('Priorities', 'priorities-btn'),
 ]
 
-const sideBarGr1 = document.createElement('div');
-sideBarGr1.classList.add('sidebar-btns', 'grp-1');
-sidebarBtnsGrp1.forEach(item => sideBarGr1.append(item));
+
 
 export const logo = createLogo(LOGO_NAME);
-export const sideBarBtns = sideBarGr1;
+export const sideBarBtns = createSidebarContainer('sb-container1', sidebarBtnsGrp1);
