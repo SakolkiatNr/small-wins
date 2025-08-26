@@ -8,9 +8,12 @@ export default class Task {
         this.status = Boolean(status)
     }
 
-    set editTask(name, desc, priority, tag, status, date) {
-
+    set changeName(newName) {
+        this.name = newName;
     }
 
+    set changeDesc(newDesc) {
+        this.desc = newDesc;
+    }
     
 };
