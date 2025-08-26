@@ -32,5 +32,4 @@ function contentContainer() {
 
 export function renderContent(target) {
     target.append(headerText(),contentContainer());
-    console.log('content.js is working');
 }
