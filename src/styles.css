@@ -1,0 +1,15 @@
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif, helvetica, monospace, system-ui;
+
+    color: var(--font-color);
+}
+
+
+.sidebar-btns {
+    display: flex;
+    flex-direction: column;
+}
