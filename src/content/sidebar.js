@@ -1,3 +1,5 @@
+
+
 const LOGO_NAME = 'Small wins';
 
 function createLogo(name) {
@@ -26,13 +28,6 @@ function createNavContainer(group, items) {
     return navContainer;
 }
 
-const sidebarBtnsGrp1 = [
-    sidebarBtn('Inbox', 'inbox-btn'),
-    sidebarBtn('Today', 'today-btn'),
-    sidebarBtn('Upcoming', 'upcoming-btn'),
-    sidebarBtn('Priorities', 'priorities-btn'),
-]
-
 // Project tag container
 function projectNav() {
     const projectNav = document.createElement('nav');
@@ -54,12 +49,12 @@ function toggleLightDarkBtn() {
     return toggleBtn;
 }
 
-
-
-
-
-
-// function project
+export const sidebarBtnsGrp1 = [
+    sidebarBtn('Inbox', 'inbox-btn'),
+    sidebarBtn('Today', 'today-btn'),
+    sidebarBtn('Upcoming', 'upcoming-btn'),
+    sidebarBtn('Priorities', 'priorities-btn'),
+]
 
 export default function renderSidebar(target) {
     target.append(createLogo(LOGO_NAME));
