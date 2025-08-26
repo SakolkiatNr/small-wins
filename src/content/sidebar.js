@@ -35,7 +35,7 @@ const sidebarBtnsGrp1 = [
     sidebarBtn('Priorities', 'priorities-btn'),
 ]
 
-
-
-export const logo = createLogo(LOGO_NAME);
-export const sideBarBtns = createSidebarContainer('sb-container1', sidebarBtnsGrp1);
+export default function renderSidebar(target) {
+    target.append(createLogo(LOGO_NAME));
+    target.append(createSidebarContainer('sb-container1', sidebarBtnsGrp1));
+}
