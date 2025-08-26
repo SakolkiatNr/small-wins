@@ -48,6 +48,11 @@ function projectNav() {
     return projectNav;
 }
 
+function toggleLightDarkBtn() {
+    const toggleBtn = sidebarBtn('Light/Dark', 'toggle-btn');
+
+    return toggleBtn;
+}
 
 
 
@@ -60,5 +65,6 @@ export default function renderSidebar(target) {
     target.append(createLogo(LOGO_NAME));
     target.append(createNavContainer('sb-container1', sidebarBtnsGrp1));
     target.append(projectNav());
+    target.append(toggleLightDarkBtn());
 }
 
