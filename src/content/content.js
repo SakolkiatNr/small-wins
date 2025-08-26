@@ -13,3 +13,10 @@ function taskContainer() {
     return tskCtn;
 }
 
+function addTaskBtn() {
+    const addTask = document.createElement('button')
+    addTask.classList.add('add-task-btn');
+
+    return addTask;
+}
+
