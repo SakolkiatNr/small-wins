@@ -1,7 +1,7 @@
 function headerText() {
     const header = document.createElement('h1');
     header.classList.add('content-header');
-    header.textContent = 'lmao';
+    header.textContent = 'Inbox';
 
     return header;
 }

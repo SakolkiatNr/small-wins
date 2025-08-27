@@ -110,8 +110,11 @@ export default class AddTaskFormHandler {
         return container;
     }
 
+
     renderAddTask(target) {
         const addTaskContainer = this.inputContainer();
         target.append(addTaskContainer);
     }
 }
+
+

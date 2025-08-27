@@ -9,4 +9,3 @@ function changeHeader(name) {
     const headerTarget = document.querySelector('.content-header');
     headerTarget.innerHTML = name;
 }
-
