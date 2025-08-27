@@ -1,4 +1,5 @@
-export function getButtonId() {
+// change Header name
+export function updateHeaderName() {
     const btnContainer = document.querySelector('.sidebar-btns');
     btnContainer.addEventListener('click', (e) => {
         changeHeader(e.target.innerHTML); 
