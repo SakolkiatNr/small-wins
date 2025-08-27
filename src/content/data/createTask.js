@@ -58,11 +58,30 @@ export default class AddTaskFormHandler {
         optionalInput.value = 'optional';
 
         prioInput.append(urgentInput, importantInput, optionalInput);
+
+        // Project Tag input 
+        const tagInput = document.createElement('select');
+        tagInput.classList.add('tag-input');
         
-        leftBtnContainer.append(dateInput, prioInput);
+        const tag1 = document.createElement('option');
+        tag1.textContent = 'test tag1';
+
+        tagInput.append(tag1);
+
+        // append to tag input select using 
+        function createProjectTagInput(tags, tagElement) {
+            for (const tag of tags) {
+                tagElement.append(tag);
+            }
+        }
+
+        // grouping input container
+        leftBtnContainer.append(dateInput, prioInput, tagInput);
         
         // grouping left container
         leftContainer.append(leftInputContainer, leftBtnContainer);
+
+
 
         // Right container
         const rightContainer = document.createElement('div');
@@ -72,6 +91,16 @@ export default class AddTaskFormHandler {
         rightBtnContainer.classList.add('btn-input-container', 'right');
         rightContainer.append(rightBtnContainer);
 
+        const cancelBtn = document.createElement('button');
+        cancelBtn.classList.add('cancel-btn');
+        cancelBtn.textContent = 'Cancel';
+
+        const addTaskBtn = document.createElement('button');
+        addTaskBtn.classList.add('add-task-btn');
+        addTaskBtn.textContent = 'Add Task';
+
+        rightBtnContainer.append(cancelBtn, addTaskBtn);
+        
         // Append btn
         container.append(leftContainer, rightContainer);
         
