@@ -1,15 +1,12 @@
-// Update content header
-// getelementbyid
-// change header display to sidebar text content 
-
 export function getButtonId() {
     const btnContainer = document.querySelector('.sidebar-btns');
     btnContainer.addEventListener('click', (e) => {
-        const targetId = e.target;
-        console.log(targetId.innerHTML);
+        changeHeader(e.target.innerHTML); 
     });
 }
 
-function updateHeader(name) {
+function changeHeader(name) {
     const headerTarget = document.querySelector('.content-header');
+    headerTarget.innerHTML = name;
 }
+
