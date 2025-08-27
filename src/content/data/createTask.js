@@ -1,3 +1,4 @@
+
 export default class AddTaskFormHandler {
     // create form elements
     inputContainer() {
@@ -24,13 +25,43 @@ export default class AddTaskFormHandler {
 
         leftInputContainer.append(titleInput, descInput);
 
+
+
+        // Date, Priority, Tag container
         const leftBtnContainer = document.createElement('div');
         leftBtnContainer.classList.add('btns-input-container', 'left');
 
         const leftContainer = document.createElement('div');
         leftContainer.classList.add('task-input-container');
 
+        // date input
+        const dateInput = document.createElement('input');
+        dateInput.classList.add('date-input');
+        dateInput.setAttribute('type', 'date');
+        dateInput.setAttribute('min', '2025-08-27');
+        console.log(new Date());
+        
+        // priority input 
+        const prioInput = document.createElement('select');
+        prioInput.classList.add('prio-input');
+        
+        const urgentInput = document.createElement('option');
+        urgentInput.textContent = 'Urgent';
+        urgentInput.value = 'urgent';
 
+        const importantInput = document.createElement('option');
+        importantInput.textContent = 'Important';
+        importantInput.value = 'important';
+
+        const optionalInput = document.createElement('option');
+        optionalInput.textContent = 'Optional';
+        optionalInput.value = 'optional';
+
+        prioInput.append(urgentInput, importantInput, optionalInput);
+        
+        leftBtnContainer.append(dateInput, prioInput);
+        
+        // grouping left container
         leftContainer.append(leftInputContainer, leftBtnContainer);
 
         // Right container
@@ -39,8 +70,8 @@ export default class AddTaskFormHandler {
 
         const rightBtnContainer = document.createElement('div');
         rightBtnContainer.classList.add('btn-input-container', 'right');
-
         rightContainer.append(rightBtnContainer);
+
         // Append btn
         container.append(leftContainer, rightContainer);
         
