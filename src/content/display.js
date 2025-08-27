@@ -11,5 +11,6 @@ export default function renderScreen() {
     renderSidebar(target);
     renderContent(contentTarget);
     updateHeaderName();
+    
     activeAddTaskButton();
 }

@@ -110,10 +110,26 @@ export default class AddTaskFormHandler {
         return container;
     }
 
+    getInputValue() {
+
+    }
+
+    removeTaskInput() {
+        const targetContainer = document.querySelector('.input-container');
+        targetContainer.remove();
+    }
+
+    addListener() {
+        const targetCancelBtn = document.querySelector('.cancel-btn');
+        targetCancelBtn.addEventListener('click', () => this.removeTaskInput());
+    }
+
 
     renderAddTask(target) {
         const addTaskContainer = this.inputContainer();
         target.append(addTaskContainer);
+        
+        this.addListener();
     }
 }
 
