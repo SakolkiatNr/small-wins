@@ -65,8 +65,10 @@ export default class AddTaskFormHandler {
         
         const tag1 = document.createElement('option');
         tag1.textContent = 'test tag1';
+        const tag2 = document.createElement('option');
+        tag2.textContent = 'taggggg 2';
 
-        tagInput.append(tag1);
+        tagInput.append(tag1, tag2);
 
         // append to tag input select using 
         function createProjectTagInput(tags, tagElement) {
@@ -97,11 +99,12 @@ export default class AddTaskFormHandler {
 
         const addTaskBtn = document.createElement('button');
         addTaskBtn.classList.add('add-task-btn');
+        addTaskBtn.setAttribute('type', 'submit');
         addTaskBtn.textContent = 'Add Task';
 
         rightBtnContainer.append(cancelBtn, addTaskBtn);
         
-        // Append btn
+        // Append
         container.append(leftContainer, rightContainer);
         
         return container;
