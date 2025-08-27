@@ -28,7 +28,6 @@ export default class AddTaskFormHandler {
 
         leftInputContainer.append(titleInput, descInput);
 
-
         // Date, Priority, Tag container
         const leftBtnContainer = document.createElement('div');
         leftBtnContainer.classList.add('btns-input-container', 'left');
@@ -115,12 +114,13 @@ export default class AddTaskFormHandler {
     }
 
     getInputValue() {
-        const title = document.querySelector('.title-input');
-        const desc = document.querySelector('.desc-input');
-        const date = document.querySelector('.date-input');
-        const prio = document.querySelector('.prio-input')
-        const tag = document.querySelector('.tag-input');
-        console.log('lmaoooo');
+        const title = document.querySelector('.title-input').value;
+        const desc = document.querySelector('.desc-input').value;
+        const date = document.querySelector('.date-input').value;
+        const prio = document.querySelector('.prio-input').value;
+        const tag = document.querySelector('.tag-input').value;
+
+        return [title, desc, date, prio, tag];
     }
 
     submitBtn() {
@@ -130,8 +130,6 @@ export default class AddTaskFormHandler {
         })
     }
 
-
-
     removeTaskInput() {
         const targetContainer = document.querySelector('.input-container');
         targetContainer.remove();
@@ -140,7 +138,6 @@ export default class AddTaskFormHandler {
     addListener() {
         const targetCancelBtn = document.querySelector('.btn-input-container');
         targetCancelBtn.addEventListener('click', (e) => {
-            // cancel btn
             if (e.target.id === 'cancel') this.removeTaskInput();
             if (e.target.id === 'add-task') {
                 this.getInputValue();
