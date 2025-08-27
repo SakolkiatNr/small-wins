@@ -1,5 +1,7 @@
 
 export default class AddTaskFormHandler {
+
+    
     // create form elements
     inputContainer() {
         // Input container
@@ -16,6 +18,7 @@ export default class AddTaskFormHandler {
         titleInput.placeholder = 'Task title';
         titleInput.setAttribute('type', 'text');
         titleInput.setAttribute('required', '');
+        titleInput.value
 
         // desc input
         const descInput = document.createElement('input');
@@ -24,7 +27,6 @@ export default class AddTaskFormHandler {
         descInput.setAttribute('type', 'text');
 
         leftInputContainer.append(titleInput, descInput);
-
 
 
         // Date, Priority, Tag container
@@ -95,11 +97,13 @@ export default class AddTaskFormHandler {
 
         const cancelBtn = document.createElement('button');
         cancelBtn.classList.add('cancel-btn');
+        cancelBtn.setAttribute('id', 'cancel');
         cancelBtn.textContent = 'Cancel';
 
         const addTaskBtn = document.createElement('button');
         addTaskBtn.classList.add('add-task-btn');
-        addTaskBtn.setAttribute('type', 'submit');
+        addTaskBtn.setAttribute('type', 'button');
+        addTaskBtn.setAttribute('id', 'add-task');
         addTaskBtn.textContent = 'Add Task';
 
         rightBtnContainer.append(cancelBtn, addTaskBtn);
@@ -111,8 +115,22 @@ export default class AddTaskFormHandler {
     }
 
     getInputValue() {
-
+        const title = document.querySelector('.title-input');
+        const desc = document.querySelector('.desc-input');
+        const date = document.querySelector('.date-input');
+        const prio = document.querySelector('.prio-input')
+        const tag = document.querySelector('.tag-input');
+        console.log('lmaoooo');
     }
+
+    submitBtn() {
+        const targetAddTaskBtn = document.querySelector('.add-task-btn');
+        targetAddTaskBtn.addEventListener('click', () => {
+            console.log('lmo');
+        })
+    }
+
+
 
     removeTaskInput() {
         const targetContainer = document.querySelector('.input-container');
@@ -120,15 +138,20 @@ export default class AddTaskFormHandler {
     }
 
     addListener() {
-        const targetCancelBtn = document.querySelector('.cancel-btn');
-        targetCancelBtn.addEventListener('click', () => this.removeTaskInput());
+        const targetCancelBtn = document.querySelector('.btn-input-container');
+        targetCancelBtn.addEventListener('click', (e) => {
+            // cancel btn
+            if (e.target.id === 'cancel') this.removeTaskInput();
+            if (e.target.id === 'add-task') {
+                this.getInputValue();
+                this.removeTaskInput();
+            };
+        });
     }
-
 
     renderAddTask(target) {
         const addTaskContainer = this.inputContainer();
         target.append(addTaskContainer);
-        
         this.addListener();
     }
 }
