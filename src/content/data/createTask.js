@@ -120,7 +120,8 @@ export default class AddTaskFormHandler {
         const prio = document.querySelector('.prio-input').value;
         const tag = document.querySelector('.tag-input').value;
 
-        return [title, desc, date, prio, tag];
+        console.log('return input value!');
+        return {title, desc, date, prio, tag};
     }
 
     submitBtn() {
@@ -152,5 +153,3 @@ export default class AddTaskFormHandler {
         this.addListener();
     }
 }
-
-

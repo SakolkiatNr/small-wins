@@ -13,6 +13,5 @@ export function activeAddTaskButton() {
         
         addTaskBtn.addEventListener('click', () => {
             showTaskInput(taskContainerTarget);
-            console.log('hello!')
         })
 }
