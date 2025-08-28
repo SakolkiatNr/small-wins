@@ -11,16 +11,7 @@ function taskSubContainer(className) {
     return container;
 }
 
-function tasksCard() {
-    const container = taskContainer();
 
-    const subCont1 = taskSubContainer('check-box-cont');
-    const subCont2 = taskSubContainer('task-details-cont');
-    const subCont3 = taskSubContainer('edit-task-cont');
-
-    taskContainer.append(subCont1, subCont2, subCont3);
-    return container;
-}
 
 // Task detail element
 function taskCheckBox() {
@@ -31,42 +22,42 @@ function taskCheckBox() {
     return checkBox;
 }
 
-function taskTitleElement(obj) {
+function taskTitleElement(title) {
     const title = document.createElement('h1');
     title.classList.add('title');
-    title.textContent = obj.name;
+    title.textContent = title;
 
     return title;
 }
 
-function taskDescElement(obj) {
+function taskDescElement(desc) {
     const detail = document.createElement('p');
     detail.classList.add('desc');
-    detail.textContent = obj.desc
+    detail.textContent = desc;
 
     return detail;
 }
 
-function taskDateElement(obj) {
+function taskDateElement(date) {
     const date = document.createElement('p');
     date.classList.add('due-date');
-    date.textContent = `Due: ${obj.date}`;
+    date.textContent = `Due: ${date}`;
     
     return date;
 }
 
-function taskPrioElement(obj) {
+function taskPrioElement(prio) {
     const prio = document.createElement('p');
     prio.classList.add('priority');
-    prio.textContent = obj.priority;
+    prio.textContent = prio;
 
     return prio;
 }
 
-function taskTagElement(obj) {
+function taskTagElement(tagName) {
     const tag = document.createElement('p');
     tag.classList.add('tag');
-    tag.textContent = `# ${obj.tag}`;
+    tag.textContent = `# ${tagName}`;
 
     return tag;
 }
@@ -86,3 +77,33 @@ function removeTaskElement() {
 
     return remove;
 }
+
+function taskCard(obj) {
+    const container = taskContainer();
+
+    const subCont1 = taskSubContainer('check-box-cont');
+    const subCont2 = taskSubContainer('task-details-cont');
+    const subCont3 = taskSubContainer('edit-task-cont');
+
+    // Add task title and desc
+    const taskDetail1 = taskSubContainer('task-details-1');
+    taskDetail1.append(taskTitleElement(obj.name), taskDescElement(obj.desc));
+    
+    // Add task details
+    const taskDetail2 = taskSubContainer('task-details-2');
+    taskDetail2.append(
+        taskDateElement(obj.date), 
+        taskPrioElement(obj.priority),
+        taskTagElement(obj.tag)
+    )
+
+    subCont1.append(taskCheckBox());
+    subCont2.append(taskDetail1, taskDetail2);
+    subCont3.append(editTaskElement(), removeTaskElement());
+
+    // append to task container
+    taskContainer.append(subCont1, subCont2, subCont3);
+    
+    return container;
+}
+
