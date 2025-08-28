@@ -24,11 +24,11 @@ function taskCheckBox() {
 }
 
 function taskTitleElement(title) {
-    const title = document.createElement('h1');
-    title.classList.add('title');
-    title.textContent = title;
+    const titleEle = document.createElement('h1');
+    titleEle.classList.add('title');
+    titleEle.textContent = title;
 
-    return title;
+    return titleEle;
 }
 
 function taskDescElement(desc) {
@@ -39,18 +39,18 @@ function taskDescElement(desc) {
     return detail;
 }
 
-function taskDateElement(date) {
+function taskDateElement(dueDate) {
     const date = document.createElement('p');
     date.classList.add('due-date');
-    date.textContent = `Due: ${date}`;
+    date.textContent = `Due: ${dueDate}`;
     
     return date;
 }
 
-function taskPrioElement(prio) {
+function taskPrioElement(taskPrio) {
     const prio = document.createElement('p');
     prio.classList.add('priority');
-    prio.textContent = prio;
+    prio.textContent = taskPrio;
 
     return prio;
 }
@@ -106,7 +106,7 @@ export function taskCard(obj) {
     subCont3.append(editTaskElement(), removeTaskElement());
 
     // append to task container
-    taskContainer.append(subCont1, subCont2, subCont3);
+    container.append(subCont1, subCont2, subCont3);
 
     return container;
 }
