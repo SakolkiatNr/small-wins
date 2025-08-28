@@ -6,40 +6,18 @@ function createInputContainer() {
         // Left container
         const leftInputContainer = document.createElement('div');
         leftInputContainer.classList.add('text-input-container');
-
-        leftInputContainer.append(titleInput(), descInput());
-
+        
         // Date, Priority, Tag container
         const leftBtnContainer = document.createElement('div');
         leftBtnContainer.classList.add('btns-input-container', 'left');
-
+        
         const leftContainer = document.createElement('div');
         leftContainer.classList.add('task-input-container');
-
-        // Project Tag input 
-        const tagInput = document.createElement('select');
-        tagInput.classList.add('tag-input');
         
-        const tag1 = document.createElement('option');
-        tag1.textContent = 'test tag1';
-        const tag2 = document.createElement('option');
-        tag2.textContent = 'taggggg 2';
-
-        tagInput.append(tag1, tag2);
-
-        // append to tag input select using 
-        // function createProjectTagInput(tags, tagElement) {
-        //     for (const tag of tags) {
-        //         tagElement.append(tag);
-        //     }
-        // }
-
         // grouping input container
+        leftInputContainer.append(titleInput(), descInput());
         leftBtnContainer.append(dateInput(), priorityInput(), tagInput());
-        
-        // grouping left container
         leftContainer.append(leftInputContainer, leftBtnContainer);
-
 
 
         // Right container
@@ -51,8 +29,6 @@ function createInputContainer() {
         rightContainer.append(rightBtnContainer);
 
         rightBtnContainer.append(createCancelBtn(), createSubmitNewTaskBtn());
-        
-        // Append
         container.append(leftContainer, rightContainer);
         
         return container; 
@@ -148,24 +124,13 @@ function createSubmitNewTaskBtn() {
 
 
 
-
-function getInputValue() {
-    const title = document.querySelector('.title-input').value;
-    const desc = document.querySelector('.desc-input').value;
-    const date = document.querySelector('.date-input').value;
-    const prio = document.querySelector('.prio-input').value;
-    const tag = document.querySelector('.tag-input').value;
-
-    console.log('return input value!');
-    console.log(title);
-    console.log(desc);
-    console.log(date);
-    return {title, desc, date, prio, tag};
-}
-
+// BUTTONS FUNCTIONS
 function submitBtn() {
-    getInputValue();
-    // removeTaskInput();
+    const target = document.getElementById('add-task');
+    target.addEventListener('click', (e) => {
+        e.preventDefault();
+        removeTaskInput();
+    })
 }
 
 function removeTaskInput() {
@@ -173,17 +138,17 @@ function removeTaskInput() {
     targetContainer.remove();
  }
 
-function addCreateTaskBtnsListenr() {
+function activeCancelBtn() {
     const targetCancelBtn = document.querySelector('.btn-input-container');
     targetCancelBtn.addEventListener('click', (e) => {
         if (!e.target) return;
         if (e.target.id === 'cancel') removeTaskInput();
-        if (e.target.id === 'add-task') submitBtn();
     });
  }
 
 export function renderAddTask(target) {
         const addTaskContainer = createInputContainer();
         target.append(addTaskContainer);
-        addCreateTaskBtnsListenr();
+        activeCancelBtn();
+        submitBtn();
  }

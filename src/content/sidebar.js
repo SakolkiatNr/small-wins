@@ -24,7 +24,7 @@ function createNavContainer(group, items) {
     navContainer.classList.add('sidebar-btns', group);
     items.forEach(item => navContainer.append(item));
     
-    console.log('status: sidebar container is working')
+    // console.log('status: sidebar container is working')
     return navContainer;
 }
 

@@ -1,11 +1,12 @@
 export default class Task {
-    constructor ( name, desc, date, priority, tag, status ) {
-        this.name = name,
+    constructor ( taskTitle, desc, date, priority, tag) {
+        this.name = taskTitle,
         this.desc = desc,
         this.priority = priority,
         this.date = date,
         this.tag = tag,
-        this.status = Boolean(status)
+        this.status = false,
+        this.id = crypto.randomUUID();
     }
 
     // Edit details
