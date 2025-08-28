@@ -1,10 +1,5 @@
-
-export default class AddTaskFormHandler {
-
-    
-    // create form elements
-    inputContainer() {
-        // Input container
+function createInputContainer() {
+   // Input container
         const container = document.createElement('form');
         container.classList.add('input-container');
 
@@ -110,10 +105,10 @@ export default class AddTaskFormHandler {
         // Append
         container.append(leftContainer, rightContainer);
         
-        return container;
-    }
+        return container; 
+}
 
-    getInputValue() {
+function getInputValue() {
         const title = document.querySelector('.title-input').value;
         const desc = document.querySelector('.desc-input').value;
         const date = document.querySelector('.date-input').value;
@@ -124,32 +119,32 @@ export default class AddTaskFormHandler {
         return {title, desc, date, prio, tag};
     }
 
-    submitBtn() {
+function submitBtn() {
         const targetAddTaskBtn = document.querySelector('.add-task-btn');
         targetAddTaskBtn.addEventListener('click', () => {
             console.log('lmo');
         })
     }
 
-    removeTaskInput() {
+function removeTaskInput() {
         const targetContainer = document.querySelector('.input-container');
         targetContainer.remove();
     }
 
-    addListener() {
+
+function addCreateTaskBtnsListenr() {
         const targetCancelBtn = document.querySelector('.btn-input-container');
         targetCancelBtn.addEventListener('click', (e) => {
-            if (e.target.id === 'cancel') this.removeTaskInput();
-            if (e.target.id === 'add-task') {
-                this.getInputValue();
-                this.removeTaskInput();
-            };
+            if (e.target.id === 'cancel') removeTaskInput();
+            // if (e.target.id === 'add-task') {
+            //     this.getInputValue();
+            //     this.removeTaskInput();
+            // };
         });
     }
 
-    renderAddTask(target) {
-        const addTaskContainer = this.inputContainer();
+export function renderAddTask(target) {
+        const addTaskContainer = createInputContainer();
         target.append(addTaskContainer);
-        this.addListener();
+        addCreateTaskBtnsListenr();
     }
-}
