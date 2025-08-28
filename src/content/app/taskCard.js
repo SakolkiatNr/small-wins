@@ -72,7 +72,7 @@ function editTaskElement() {
 }
 
 function removeTaskElement() {
-    const remove = document.createElement('remove');
+    const remove = document.createElement('button');
     remove.classList.add('remove-task');
     remove.textContent = 'remove';
 
