@@ -1,7 +1,8 @@
 // Task container
-function taskContainer() {
+function taskContainer(id) {
     const container = document.createElement('div');
     container.classList.add('task-container');
+    container.id = id;
     return container;
 }
 
@@ -79,7 +80,7 @@ function removeTaskElement() {
 }
 
 function taskCard(obj) {
-    const container = taskContainer();
+    const container = taskContainer(obj.id);
 
     const subCont1 = taskSubContainer('check-box-cont');
     const subCont2 = taskSubContainer('task-details-cont');
@@ -103,7 +104,7 @@ function taskCard(obj) {
 
     // append to task container
     taskContainer.append(subCont1, subCont2, subCont3);
-    
+
     return container;
 }
 
