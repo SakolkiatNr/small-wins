@@ -49,17 +49,23 @@ function toggleLightDarkBtn() {
     return toggleBtn;
 }
 
-export const sidebarBtnsGrp1 = [
-    sidebarBtn('Inbox', 'inbox-btn'),
-    sidebarBtn('Today', 'today-btn'),
-    sidebarBtn('This Week', 'thisweek-btn'),
-    sidebarBtn('Upcoming', 'upcoming-btn'),
-    // sidebarBtn('Priorities', 'priorities-btn'),
-]
+function sidebarBtnsGrp1() {
+    const btn1 = sidebarBtn('Inbox', 'inbox-btn');
+    const btn2 = sidebarBtn('Today', 'today-btn');
+    const btn3 = sidebarBtn('This Week', 'thisweek-btn');
+
+    // set id
+    btn1.setAttribute('id', 'inbox-btn');
+    btn2.setAttribute('id', 'today-btn');
+    btn3.setAttribute('id', 'week-btn');
+
+    return [btn1, btn2, btn3];
+}
+
 
 export default function renderSidebar(target) {
     target.append(createLogo(LOGO_NAME));
-    target.append(createNavContainer('sb-container1', sidebarBtnsGrp1));
+    target.append(createNavContainer('sb-container1', sidebarBtnsGrp1()));
     target.append(projectNav());
     target.append(toggleLightDarkBtn());
 }
