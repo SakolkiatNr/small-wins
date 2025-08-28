@@ -33,7 +33,3 @@ export default class Task {
 };
 
 export const tasksArr = [];
-
-const tasks = {
-
-};

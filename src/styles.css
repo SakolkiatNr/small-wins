@@ -41,3 +41,9 @@ body {
     display: flex;
     box-sizing: content-box;
 }
+
+/* TASK CARD */
+.task-container {
+    border: 1px solid red;
+    display: flex;
+}

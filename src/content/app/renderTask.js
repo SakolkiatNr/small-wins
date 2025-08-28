@@ -14,3 +14,8 @@ export function renderTasks() {
     }
     
 }
+
+// TODO
+// Add filter for today date
+// Add filter for this week date
+// Add filter for tag
