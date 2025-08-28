@@ -15,24 +15,6 @@ function createInputContainer() {
 
         const leftContainer = document.createElement('div');
         leftContainer.classList.add('task-input-container');
-        
-        // priority input 
-        const prioInput = document.createElement('select');
-        prioInput.classList.add('prio-input');
-        
-        const urgentInput = document.createElement('option');
-        urgentInput.textContent = 'Urgent';
-        urgentInput.value = 'urgent';
-
-        const importantInput = document.createElement('option');
-        importantInput.textContent = 'Important';
-        importantInput.value = 'important';
-
-        const optionalInput = document.createElement('option');
-        optionalInput.textContent = 'Optional';
-        optionalInput.value = 'optional';
-
-        prioInput.append(urgentInput, importantInput, optionalInput);
 
         // Project Tag input 
         const tagInput = document.createElement('select');
@@ -53,7 +35,7 @@ function createInputContainer() {
         // }
 
         // grouping input container
-        leftBtnContainer.append(dateInput, prioInput, tagInput);
+        leftBtnContainer.append(dateInput(), priorityInput(), tagInput());
         
         // grouping left container
         leftContainer.append(leftInputContainer, leftBtnContainer);
@@ -75,7 +57,7 @@ function createInputContainer() {
         
         return container; 
 }
-
+// INPUT ELEMENTs
 function titleInput() {
     const titleInput = document.createElement('input');
     titleInput.classList.add('title-input');
@@ -131,6 +113,20 @@ function priorityInput() {
     return prioInput;
 }
 
+function tagInput() {
+    const tagInput = document.createElement('select');
+    tagInput.classList.add('tag-input');
+    
+    const tag1 = document.createElement('option');
+    tag1.textContent = 'test tag1';
+    const tag2 = document.createElement('option');
+    tag2.textContent = 'taggggg 2';
+
+    tagInput.append(tag1, tag2);
+    
+    return tagInput;
+}
+
 function createCancelBtn() {
     const cancelBtn = document.createElement('button');
     cancelBtn.classList.add('cancel-btn');
@@ -149,6 +145,9 @@ function createSubmitNewTaskBtn() {
 
     return addTaskBtn;
 }
+
+
+
 
 function getInputValue() {
     const title = document.querySelector('.title-input').value;
