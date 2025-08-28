@@ -71,3 +71,18 @@ function taskTagElement(obj) {
     return tag;
 }
 
+function editTaskElement() {
+    const edit = document.createElement('button');
+    edit.classList.add('edit-task');
+    edit.textContent = 'edit';
+
+    return edit;
+}
+
+function removeTaskElement() {
+    const remove = document.createElement('remove');
+    remove.classList.add('remove-task');
+    remove.textContent = 'remove';
+
+    return remove;
+}
