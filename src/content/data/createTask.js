@@ -1,3 +1,7 @@
+import { addTaskToArr } from "./getDataInfo";
+
+
+
 function createInputContainer() {
    // Input container
         const container = document.createElement('form');
@@ -129,6 +133,7 @@ function submitBtn() {
     const target = document.getElementById('add-task');
     target.addEventListener('click', (e) => {
         e.preventDefault();
+        addTaskToArr();
         removeTaskInput();
     })
 }

@@ -1,4 +1,5 @@
 import Task from "./taskData";
+import { tasksArr } from "./taskData";
 
 function inputValue() {
     const title = document.querySelector('.title-input').value;
@@ -7,22 +8,23 @@ function inputValue() {
     const prio = document.querySelector('.prio-input').value;
     const tag = document.querySelector('.tag-input').value;
 
-    console.log('return input value!');
-    console.log(title);
-    console.log(desc);
-    console.log(date);
     return {title, desc, date, prio, tag};
 }
-
 
 function createNewTask() {
     const inputValues = inputValue();
     
     const newTask = new Task(
-        taskTitle = inputValues.title,
-        desc = inputValues.desc,
-        date = inputValues.date,
-        priority = inputValues.prio,
-        tag = inputValues.tag,
+        inputValues.title,
+        inputValues.desc,
+        inputValues.date,
+        inputValues.prio,
+        inputValues.tag,
     );
+    return newTask;
+}
+
+export function addTaskToArr() {
+    console.log('Push new task to tasks array')
+    tasksArr.push(createNewTask());
 }
