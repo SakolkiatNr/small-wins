@@ -63,7 +63,7 @@ function dateInput() {
     dateInput.classList.add('date-input');
     dateInput.setAttribute('type', 'date');
     dateInput.setAttribute('min', '2025-08-27');
-    console.log(new Date());
+    // console.log(new Date());
 
     return dateInput;
 }

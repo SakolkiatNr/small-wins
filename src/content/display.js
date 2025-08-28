@@ -1,9 +1,6 @@
 import renderSidebar from "./sidebar";
 import { renderContent } from "./content";
-import { updateHeaderName } from "./app/updateDisplay";
-import { activeAddTaskButton } from "./app/showTaskInput";
-// import { activeCreateNewTaskBtn } from "./data/getDataInfo";
-
+import { activeTaskEventHandler } from "./app/TaskEventHandlert";
 
 export default function renderScreen() {
     const target = document.querySelector('.sidebar');
@@ -12,7 +9,7 @@ export default function renderScreen() {
     // Render
     renderSidebar(target);
     renderContent(contentTarget);
-    updateHeaderName();
     
-    activeAddTaskButton();
+    // active event listener
+    activeTaskEventHandler();
 }

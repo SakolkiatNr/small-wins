@@ -25,6 +25,6 @@ function createNewTask() {
 }
 
 export function addTaskToArr() {
-    console.log('Push new task to tasks array')
+    // console.log('Push new task to tasks array')
     tasksArr.push(createNewTask());
 }

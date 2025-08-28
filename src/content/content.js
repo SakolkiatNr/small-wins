@@ -31,5 +31,5 @@ function contentContainer() {
 }
 
 export function renderContent(target) {
-    target.append(headerText(),contentContainer());
+    target.append(headerText(), contentContainer());
 }

@@ -8,15 +8,20 @@ export function renderTasks() {
 
     // clear container
     tasksContainer.innerHTML = '';
+
     // render task
     for (const task in tasks) {
         const taskObj = tasks[task];
+        console.log(taskObj.date);
         tasksContainer.append(taskCard(taskObj));
     }
     
 }
 
-// TODO
-// Add filter for today date
-// Add filter for this week date
-// Add filter for tag
+// if id === 'today' run this function
+function filterToday(tasks) {
+    for (const task in tasks) {
+        const today = tasks[task].date
+    }
+
+}
