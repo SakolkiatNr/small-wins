@@ -7,21 +7,7 @@ function createInputContainer() {
         const leftInputContainer = document.createElement('div');
         leftInputContainer.classList.add('text-input-container');
 
-        // text input
-        const titleInput = document.createElement('input');
-        titleInput.classList.add('title-input');
-        titleInput.placeholder = 'Task title';
-        titleInput.setAttribute('type', 'text');
-        titleInput.setAttribute('required', '');
-        titleInput.value
-
-        // desc input
-        const descInput = document.createElement('input');
-        descInput.classList.add('desc-input');
-        descInput.placeholder = 'Task Details';
-        descInput.setAttribute('type', 'text');
-
-        leftInputContainer.append(titleInput, descInput);
+        leftInputContainer.append(titleInput(), descInput());
 
         // Date, Priority, Tag container
         const leftBtnContainer = document.createElement('div');
@@ -29,13 +15,6 @@ function createInputContainer() {
 
         const leftContainer = document.createElement('div');
         leftContainer.classList.add('task-input-container');
-
-        // date input
-        const dateInput = document.createElement('input');
-        dateInput.classList.add('date-input');
-        dateInput.setAttribute('type', 'date');
-        dateInput.setAttribute('min', '2025-08-27');
-        console.log(new Date());
         
         // priority input 
         const prioInput = document.createElement('select');
@@ -67,11 +46,11 @@ function createInputContainer() {
         tagInput.append(tag1, tag2);
 
         // append to tag input select using 
-        function createProjectTagInput(tags, tagElement) {
-            for (const tag of tags) {
-                tagElement.append(tag);
-            }
-        }
+        // function createProjectTagInput(tags, tagElement) {
+        //     for (const tag of tags) {
+        //         tagElement.append(tag);
+        //     }
+        // }
 
         // grouping input container
         leftBtnContainer.append(dateInput, prioInput, tagInput);
@@ -89,18 +68,7 @@ function createInputContainer() {
         rightBtnContainer.classList.add('btn-input-container', 'right');
         rightContainer.append(rightBtnContainer);
 
-        const cancelBtn = document.createElement('button');
-        cancelBtn.classList.add('cancel-btn');
-        cancelBtn.setAttribute('id', 'cancel');
-        cancelBtn.textContent = 'Cancel';
-
-        const addTaskBtn = document.createElement('button');
-        addTaskBtn.classList.add('add-task-btn');
-        addTaskBtn.setAttribute('type', 'button');
-        addTaskBtn.setAttribute('id', 'add-task');
-        addTaskBtn.textContent = 'Add Task';
-
-        rightBtnContainer.append(cancelBtn, addTaskBtn);
+        rightBtnContainer.append(createCancelBtn(), createSubmitNewTaskBtn());
         
         // Append
         container.append(leftContainer, rightContainer);
@@ -108,43 +76,115 @@ function createInputContainer() {
         return container; 
 }
 
-function getInputValue() {
-        const title = document.querySelector('.title-input').value;
-        const desc = document.querySelector('.desc-input').value;
-        const date = document.querySelector('.date-input').value;
-        const prio = document.querySelector('.prio-input').value;
-        const tag = document.querySelector('.tag-input').value;
+function titleInput() {
+    const titleInput = document.createElement('input');
+    titleInput.classList.add('title-input');
+    titleInput.placeholder = 'Task title';
+    titleInput.setAttribute('type', 'text');
+    titleInput.setAttribute('required', '');
+    titleInput.value
 
-        console.log('return input value!');
-        return {title, desc, date, prio, tag};
-    }
+    return titleInput;
+}
+
+function descInput() {
+    const descInput = document.createElement('input');
+    descInput.classList.add('desc-input');
+    descInput.placeholder = 'Task Details';
+    descInput.setAttribute('type', 'text');
+
+    return descInput;
+}
+
+function dateInput() {
+    const dateInput = document.createElement('input');
+    dateInput.classList.add('date-input');
+    dateInput.setAttribute('type', 'date');
+    dateInput.setAttribute('min', '2025-08-27');
+    console.log(new Date());
+
+    return dateInput;
+}
+
+function priorityInput() {
+    // priority selection container
+    const prioInput = document.createElement('select');
+    prioInput.classList.add('prio-input');
+    
+    const urgentInput = document.createElement('option');
+    urgentInput.textContent = 'Urgent';
+    urgentInput.classList.add('prio-urgent');
+    urgentInput.value = 'urgent';
+
+    const importantInput = document.createElement('option');
+    importantInput.classList.add('prio-important');
+    importantInput.textContent = 'Important';
+    importantInput.value = 'important';
+
+    const optionalInput = document.createElement('option');
+    optionalInput.classList.add('prio-optional');
+    optionalInput.textContent = 'Optional';
+    optionalInput.value = 'optional';
+
+    prioInput.append(urgentInput, importantInput, optionalInput);
+
+    return prioInput;
+}
+
+function createCancelBtn() {
+    const cancelBtn = document.createElement('button');
+    cancelBtn.classList.add('cancel-btn');
+    cancelBtn.setAttribute('id', 'cancel');
+    cancelBtn.textContent = 'Cancel'; 
+
+    return cancelBtn;
+}
+
+function createSubmitNewTaskBtn() {
+    const addTaskBtn = document.createElement('button');
+    addTaskBtn.classList.add('add-task-btn');
+    addTaskBtn.setAttribute('type', 'submit');
+    addTaskBtn.setAttribute('id', 'add-task');
+    addTaskBtn.textContent = 'Add Task';
+
+    return addTaskBtn;
+}
+
+function getInputValue() {
+    const title = document.querySelector('.title-input').value;
+    const desc = document.querySelector('.desc-input').value;
+    const date = document.querySelector('.date-input').value;
+    const prio = document.querySelector('.prio-input').value;
+    const tag = document.querySelector('.tag-input').value;
+
+    console.log('return input value!');
+    console.log(title);
+    console.log(desc);
+    console.log(date);
+    return {title, desc, date, prio, tag};
+}
 
 function submitBtn() {
-        const targetAddTaskBtn = document.querySelector('.add-task-btn');
-        targetAddTaskBtn.addEventListener('click', () => {
-            console.log('lmo');
-        })
-    }
+    getInputValue();
+    // removeTaskInput();
+}
 
 function removeTaskInput() {
-        const targetContainer = document.querySelector('.input-container');
-        targetContainer.remove();
-    }
-
+    const targetContainer = document.querySelector('.input-container');
+    targetContainer.remove();
+ }
 
 function addCreateTaskBtnsListenr() {
-        const targetCancelBtn = document.querySelector('.btn-input-container');
-        targetCancelBtn.addEventListener('click', (e) => {
-            if (e.target.id === 'cancel') removeTaskInput();
-            // if (e.target.id === 'add-task') {
-            //     this.getInputValue();
-            //     this.removeTaskInput();
-            // };
-        });
-    }
+    const targetCancelBtn = document.querySelector('.btn-input-container');
+    targetCancelBtn.addEventListener('click', (e) => {
+        if (!e.target) return;
+        if (e.target.id === 'cancel') removeTaskInput();
+        if (e.target.id === 'add-task') submitBtn();
+    });
+ }
 
 export function renderAddTask(target) {
         const addTaskContainer = createInputContainer();
         target.append(addTaskContainer);
         addCreateTaskBtnsListenr();
-    }
+ }
