@@ -6,7 +6,7 @@ export function updateContentScreen() {
     btnContainer.addEventListener('click', (e) => {
         changeHeader(e.target.innerHTML);
 
-        console.log(e.target.id);
+        // change content display
         if (e.target.id === 'inbox-btn') renderDefault();
         if (e.target.id === 'today-btn') renderToday();
         if (e.target.id === 'week-btn') renderThisWeek();

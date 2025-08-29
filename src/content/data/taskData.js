@@ -31,5 +31,3 @@ export default class Task {
     }
     
 };
-
-export const tasksArr = [];

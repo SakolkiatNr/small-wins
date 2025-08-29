@@ -79,6 +79,7 @@ function removeTaskElement() {
     return remove;
 }
 
+// Render taskObj
 export function taskCard(obj) {
     const container = taskContainer(obj.id);
 

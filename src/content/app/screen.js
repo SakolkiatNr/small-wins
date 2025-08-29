@@ -15,12 +15,9 @@ export default class Screen {
         this.clearScreen();
         for (const task in this.#tasks) {
             const taskObj = this.#tasks[task];
-            tasksContainer.append(taskCard(taskObj));
+            console.log(taskObj);
+            this.#tasksContainer.append(taskCard(taskObj));
         }
-
-        const test = document.createElement('h1');
-        test.textContent = 'INBOXXXX';
-        this.#tasksContainer.append(test);
     }
 
     filterToday() {
