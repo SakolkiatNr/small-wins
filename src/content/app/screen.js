@@ -61,8 +61,9 @@ export default class Screen {
        for (const task in this.tasks) {
             const taskObj = this.tasks[task];
 
-            console.log(`Task ${task} status : ${taskObj.status}`);
+            // show complete task
             if (taskObj.status === true) {
+                this.#tasksContainer.append(taskCard(taskObj));
             }
        } 
     }

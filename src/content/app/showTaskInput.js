@@ -1,4 +1,3 @@
-// import AddTaskFormHandler from "../data/createTask";
 import { renderAddTask } from "../data/createTask";
 import { submitBtnHandler } from "../data/getDataInfo";
 

@@ -1,5 +1,3 @@
-import Screen from "./screen";
-
 // change Header name
 function changeHeader(name) {
     const headerTarget = document.querySelector('.content-header');
