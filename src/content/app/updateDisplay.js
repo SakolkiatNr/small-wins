@@ -15,5 +15,6 @@ export function updateContentScreen(screenObj) {
         if (e.target.id === 'inbox-btn') screenObj.renderDefault();
         if (e.target.id === 'today-btn') screenObj.filterToday();
         if (e.target.id === 'week-btn') screenObj.filterWeek();
+        if (e.target.id === 'complete-btn') screenObj.filterCompleted();
     });
 }

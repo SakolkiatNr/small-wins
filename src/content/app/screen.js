@@ -53,11 +53,18 @@ export default class Screen {
                 this.#tasksContainer.append(taskCard(taskObj));
             }
         }
-
     }
 
     filterCompleted() {
-        // Task.status === true;
+       this.clearScreen();
+
+       for (const task in this.tasks) {
+            const taskObj = this.tasks[task];
+
+            console.log(`Task ${task} status : ${taskObj.status}`);
+            if (taskObj.status === true) {
+            }
+       } 
     }
 
     filterProject(projectTag) {
@@ -68,8 +75,5 @@ export default class Screen {
 }
 
 // TODO
-// get add button to fill data into database
-// filter task functions
 // Project arrays
 // link project to task tag
-// 
