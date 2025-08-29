@@ -4,6 +4,8 @@ export function updateHeaderName() {
     btnContainer.addEventListener('click', (e) => {
         changeHeader(e.target.innerHTML);
 
+        // clear screen
+        // change page content
         console.log(e.target.id);
     });
 }

@@ -1,5 +1,4 @@
 import { addTaskToArr } from "./getDataInfo";
-import { renderTasks } from "../app/renderTask";
 
 
 function createInputContainer() {
@@ -133,9 +132,9 @@ function submitBtn() {
     const target = document.getElementById('add-task');
     target.addEventListener('click', (e) => {
         e.preventDefault();
+
         addTaskToArr();
         // removeTaskInput();
-        renderTasks();
     })
 }
 
