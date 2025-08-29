@@ -2,7 +2,7 @@
 function taskContainer(id) {
     const container = document.createElement('div');
     container.classList.add('task-container');
-    container.id = id;
+    container.dataset.id = id;
     return container;
 }
 

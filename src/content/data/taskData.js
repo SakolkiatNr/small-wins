@@ -29,5 +29,10 @@ export default class Task {
     set changeTag(newTag) {
         this.tag = newTag;
     }
+
+    set toggleStatus(newStatus) {
+        newStatus = !this.status;
+        this.status = newStatus;
+    }
     
 };

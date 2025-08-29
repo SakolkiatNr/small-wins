@@ -1,4 +1,3 @@
-import TasksData from "../data/tasks";
 import { taskCard } from "./taskCard";
 import { format } from "date-fns";
 // import { taskCard } from "./taskCard";
@@ -71,10 +70,5 @@ export default class Screen {
     filterProject(projectTag) {
         // for (tag in tags) 
         // append matching tag
-
     }
 }
-
-// TODO
-// Project arrays
-// link project to task tag
