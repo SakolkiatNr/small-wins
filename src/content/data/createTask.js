@@ -144,16 +144,3 @@ export function renderAddTask(target) {
         target.append(addTaskContainer);
         activeCancelBtn();
  }
-
-
- export function submitBtnHandler(tasksData) {
-    const target = document.getElementById('add-task');
-    const targetContainer = document.querySelector('.input-container');
-
-    target.addEventListener('click', (e) => {
-        e.preventDefault();
-        
-        tasksData.addTask(newTask());
-        targetContainer.remove();
-    });
-}

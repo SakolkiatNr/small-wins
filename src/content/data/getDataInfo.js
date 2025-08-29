@@ -23,15 +23,17 @@ function newTask() {
     return newTask;
 }
 
-// Add input data to tasksData
 export function submitBtnHandler(tasksData) {
     const target = document.getElementById('add-task');
     const targetContainer = document.querySelector('.input-container');
-
+    
     target.addEventListener('click', (e) => {
         e.preventDefault();
         
+        // Add input data to tasksData
+        console.log('adding task input to database...')
         tasksData.addTask(newTask());
         targetContainer.remove();
     });
 }
+
