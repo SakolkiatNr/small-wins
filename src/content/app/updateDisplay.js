@@ -9,6 +9,7 @@ export function updateContentScreen() {
         console.log(e.target.id);
         if (e.target.id === 'inbox-btn') renderDefault();
         if (e.target.id === 'today-btn') renderToday();
+        if (e.target.id === 'week-btn') renderThisWeek();
     });
 }
 
@@ -29,4 +30,11 @@ function renderToday() {
 
     todayScreen.filterToday();
     console.log('Today screen is working!');
+}
+
+function renderThisWeek() {
+    const thisWeekScreen = new Screen();
+
+    thisWeekScreen.filterWeek();
+    console.log('This week screen is working!');
 }

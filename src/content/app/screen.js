@@ -40,16 +40,21 @@ export default class Screen {
     }
 
     filterWeek() {
-        for (const task in this.#tasks) {
-            const taskObj = this.#tasks[task];
+        this.clearScreen();
+        // for (const task in this.#tasks) {
+        //     const taskObj = this.#tasks[task];
             
-            const today = new Date();
-            const thisWeek = today.setDate(today.getDate() + 7);
+        //     const today = new Date();
+        //     const thisWeek = today.setDate(today.getDate() + 7);
 
-            if (taskObj.date <= thisWeek ) {
-                this.#tasksContainer.append(taskCard(taskObj));
-            }
-        }
+        //     if (taskObj.date <= thisWeek ) {
+        //         this.#tasksContainer.append(taskCard(taskObj));
+        //     }
+        // }
+
+        const test = document.createElement('h1');
+        test.textContent = 'THISWEEEEKKKKKKKKK'
+        this.#tasksContainer.append(test);
     }
 
     filterCompleted() {
