@@ -25,28 +25,18 @@ export default class Screen {
             // render task obj
             this.#tasksContainer.append(taskCard(taskObj));
         }
-
-        // // TEST
-        // const test = document.createElement('h1');
-        // test.textContent = 'INBOXXX';
-        // this.#tasksContainer.append(test); 
     }
 
     filterToday() {
         this.clearScreen();
-        // for (const task in tasksArray) {
-        //     const taskObj = tasksArray[task];
-        //     const todayDate = format(new Date(), 'yyyy-MM-dd');
-            
-        //     if (todayDate === taskObj.date) {
-        //         this.#tasksContainer.append(taskCard(taskObj));
-        //     }  
-        // }
+        for (const task in this.tasks) {
+            const taskObj = this.tasks[task];
+            const todayDate = format(new Date(), 'yyyy-MM-dd');
 
-        // TEST
-        const test = document.createElement('h1');
-        test.textContent = 'TODAYYYY';
-        this.#tasksContainer.append(test);
+            if (todayDate === taskObj.date) {
+                this.#tasksContainer.append(taskCard(taskObj));
+            }  
+        }
     }
 
     filterWeek() {
