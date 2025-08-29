@@ -33,6 +33,7 @@ export default class Screen {
             const taskObj = this.tasks[task];
             const todayDate = format(new Date(), 'yyyy-MM-dd');
 
+            // if task due today
             if (todayDate === taskObj.date) {
                 this.#tasksContainer.append(taskCard(taskObj));
             }  
@@ -41,20 +42,18 @@ export default class Screen {
 
     filterWeek() {
         this.clearScreen();
-        // for (const task in this.#tasks) {
-        //     const taskObj = this.#tasks[task];
+        for (const task in this.tasks) {
+            const taskObj = this.tasks[task];
             
-        //     const today = new Date();
-        //     const thisWeek = today.setDate(today.getDate() + 7);
+            const today = new Date();
+            const thisWeek = format(today.setDate(today.getDate() + 7), 'yyyy-MM-dd');
+            
+            // if task due date within 7 days
+            if (taskObj.date <= thisWeek ) {
+                this.#tasksContainer.append(taskCard(taskObj));
+            }
+        }
 
-        //     if (taskObj.date <= thisWeek ) {
-        //         this.#tasksContainer.append(taskCard(taskObj));
-        //     }
-        // }
-
-        const test = document.createElement('h1');
-        test.textContent = 'THIS WEEK'
-        this.#tasksContainer.append(test);
     }
 
     filterCompleted() {

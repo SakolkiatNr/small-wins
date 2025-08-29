@@ -53,13 +53,15 @@ function sidebarBtnsGrp1() {
     const btn1 = sidebarBtn('Inbox', 'inbox-btn');
     const btn2 = sidebarBtn('Today', 'today-btn');
     const btn3 = sidebarBtn('This Week', 'thisweek-btn');
+    const btn4 = sidebarBtn('Completed', 'completed-btn');
 
     // set id
     btn1.setAttribute('id', 'inbox-btn');
     btn2.setAttribute('id', 'today-btn');
     btn3.setAttribute('id', 'week-btn');
+    btn4.setAttribute('id', 'complete-btn');
 
-    return [btn1, btn2, btn3];
+    return [btn1, btn2, btn3, btn4];
 }
 
 
