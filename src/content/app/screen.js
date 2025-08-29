@@ -2,7 +2,7 @@ import { tasksArr } from "../data/taskData";
 import { taskCard } from "./taskCard";
 import { format } from "date-fns";
 
-class Screen {
+export default class Screen {
     #tasksContainer = document.querySelector('.tasks-container');
     #tasks = tasksArr;
 
@@ -12,21 +12,31 @@ class Screen {
     }
 
     renderDefault() {
+        this.clearScreen();
         for (const task in this.#tasks) {
             const taskObj = this.#tasks[task];
             tasksContainer.append(taskCard(taskObj));
         }
+
+        const test = document.createElement('h1');
+        test.textContent = 'INBOXXXX';
+        this.#tasksContainer.append(test);
     }
 
     filterToday() {
-        for (const task in this.#tasks) {
-            const taskObj = this.#tasks[task];
-            const todayDate = format(new Date(), 'yyyy-MM-dd');
+        this.clearScreen();
+        // for (const task in this.#tasks) {
+        //     const taskObj = this.#tasks[task];
+        //     const todayDate = format(new Date(), 'yyyy-MM-dd');
             
-            if (todayDate === taskObj.date) {
-                this.#tasksContainer.append(taskCard(taskObj));
-            }  
-        }
+        //     if (todayDate === taskObj.date) {
+        //         this.#tasksContainer.append(taskCard(taskObj));
+        //     }  
+        // }
+
+        const test = document.createElement('h1');
+        test.textContent = 'TODAYYYY';
+        this.#tasksContainer.append(test);
     }
 
     filterWeek() {

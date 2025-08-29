@@ -134,7 +134,7 @@ function submitBtn() {
         e.preventDefault();
 
         addTaskToArr();
-        // removeTaskInput();
+        removeTaskInput();
     })
 }
 
