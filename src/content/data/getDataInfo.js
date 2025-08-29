@@ -1,5 +1,6 @@
 import Task from "./taskData";
-import { tasksArr } from "./taskData";
+// import { tasksArr } from "./taskData";
+import TasksData from "./tasks";
 
 function inputValue() {
     const title = document.querySelector('.title-input').value;
@@ -23,8 +24,10 @@ function createNewTask() {
     );
     return newTask;
 }
+const tasks = new TasksData();
 
 export function addTaskToArr() {
-    // console.log('Push new task to tasks array')
-    tasksArr.push(createNewTask());
+    // tasksArr.push(createNewTask());
+    tasks.addTask(createNewTask());
+
 }

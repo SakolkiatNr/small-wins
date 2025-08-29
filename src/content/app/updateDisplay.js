@@ -7,9 +7,9 @@ export function updateContentScreen() {
         changeHeader(e.target.innerHTML);
 
         // change content display
-        if (e.target.id === 'inbox-btn') renderDefault();
-        if (e.target.id === 'today-btn') renderToday();
-        if (e.target.id === 'week-btn') renderThisWeek();
+        if (e.target.id === 'inbox-btn') console.log('inbox');
+        if (e.target.id === 'today-btn') console.log('today');
+        if (e.target.id === 'week-btn') console.log('this-week');
     });
 }
 
@@ -18,23 +18,3 @@ function changeHeader(name) {
     headerTarget.innerHTML = name;
 }
 
-function renderDefault() {
-    const defaultScreen = new Screen();
-
-    defaultScreen.renderDefault();
-    console.log('Showing Today content!');
-}
-
-function renderToday() {
-    const todayScreen = new Screen();
-
-    todayScreen.filterToday();
-    console.log('Today screen is working!');
-}
-
-function renderThisWeek() {
-    const thisWeekScreen = new Screen();
-
-    thisWeekScreen.filterWeek();
-    console.log('This week screen is working!');
-}

@@ -1,4 +1,4 @@
-import { addTaskToArr } from "./getDataInfo";
+// import { addTaskToArr } from "./getDataInfo";
 
 
 function createInputContainer() {
@@ -133,7 +133,7 @@ function submitBtn() {
     target.addEventListener('click', (e) => {
         e.preventDefault();
 
-        addTaskToArr();
+        // addTaskToArr();
         removeTaskInput();
     })
 }
