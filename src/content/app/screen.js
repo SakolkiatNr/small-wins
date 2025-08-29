@@ -4,56 +4,73 @@ import { format } from "date-fns";
 
 class Screen {
     #tasksContainer = document.querySelector('.tasks-container');
-    #task = tasksArr;
+    #tasks = tasksArr;
 
     clearScreen() {
         const container = document.querySelector('.tasks-container');
         container.innerHTML = '';
     }
 
-    currentScreen(pageId) {
-        this.clearScreen();
-        if (pageId) return 'render this page';
-
-    }
-}
-
-
-
-export function renderTasks() {
-    // Tasks data
-    const tasks = tasksArr;
-    const tasksContainer = document.querySelector('.tasks-container');
-
-    // render task
-    for (const task in tasks) {
-        const taskObj = tasks[task];
-        tasksContainer.append(taskCard(taskObj));
-    }
-}
-
-// if id === 'today' run this function
-function filterToday(tasksArr, targetContainer) {
-    for (const task in tasksArr) {
-        // yyyy-mm-dd
-        const taskDate = tasksArr[task].date;
-        const today = format(new Date(), 'yyyy-MM-dd');
-
-        if (taskDate === today) {
-            targetContainer.append(taskCard(taskDate[task]));
+    renderDefault() {
+        for (const task in this.#tasks) {
+            const taskObj = this.#tasks[task];
+            tasksContainer.append(taskCard(taskObj));
         }
     }
+
+    filterToday() {
+        for (const task in this.#tasks) {
+            const taskObj = this.#tasks[task];
+            const todayDate = format(new Date(), 'yyyy-MM-dd');
+            
+            if (todayDate === taskObj.date) {
+                this.#tasksContainer.append(taskCard(taskObj));
+            }  
+        }
+    }
+
+    filterWeek() {
+        for (const task in this.#tasks) {
+            const taskObj = this.#tasks[task];
+            
+            const today = new Date();
+            const thisWeek = today.setDate(today.getDate() + 7);
+
+            if (taskObj.date <= thisWeek ) {
+                this.#tasksContainer.append(taskCard(taskObj));
+            }
+        }
+    }
+
+    filterCompleted() {
+        // Task.status === true;
+    }
+
+    filterProject(projectTag) {
+        // for (tag in tags) 
+        // append matching tag
+
+    }
+
 }
 
-function filterWeek(tasksArr, targetContainer) {
 
-}
+/*
+click Nav (export to upDateDisplay.js)
+
+get nav Id
+
+if nav id === today
+    Screen.filterDay
+if nav id === week
+    Screen.filterWeek
+if nav id === completed
+    Screen. Show tasks that Task.status === true
 
 
-// const inboxPage = new Screen();
-// inboxPage.currentScreen(id);
-// const todayPage = new Screen();
-// const weekPage = new Screen();
+if project.id
+    matching tag
+    render matching tag in Tasks
 
-// const project1 = new Screen();
-// const project2 = new Screen();
+
+*/
