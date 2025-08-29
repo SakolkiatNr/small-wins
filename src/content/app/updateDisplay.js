@@ -1,15 +1,15 @@
 import Screen from "./screen";
 
 // change Header name
-export function updateContentScreen() {
+export function updateContentScreen(screenObj) {
     const btnContainer = document.querySelector('.sidebar-btns');
     btnContainer.addEventListener('click', (e) => {
         changeHeader(e.target.innerHTML);
 
         // change content display
-        if (e.target.id === 'inbox-btn') console.log('inbox');
-        if (e.target.id === 'today-btn') console.log('today');
-        if (e.target.id === 'week-btn') console.log('this-week');
+        if (e.target.id === 'inbox-btn') screenObj.renderDefault();
+        if (e.target.id === 'today-btn') screenObj.filterToday();
+        if (e.target.id === 'week-btn') screenObj.filterWeek();
     });
 }
 

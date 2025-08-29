@@ -12,7 +12,7 @@ function inputValue() {
     return {title, desc, date, prio, tag};
 }
 
-function createNewTask() {
+function NewTask() {
     const inputValues = inputValue();
     
     const newTask = new Task(
@@ -24,10 +24,4 @@ function createNewTask() {
     );
     return newTask;
 }
-const tasks = new TasksData();
 
-export function addTaskToArr() {
-    // tasksArr.push(createNewTask());
-    tasks.addTask(createNewTask());
-
-}

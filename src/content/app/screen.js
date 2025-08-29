@@ -1,15 +1,15 @@
-// import { tasksArr } from "../data/taskData";
 import TasksData from "../data/tasks";
 import { taskCard } from "./taskCard";
 import { format } from "date-fns";
+// import { taskCard } from "./taskCard";
 
 export default class Screen {
-    constructor(tasksContainer) {
-        this.container = tasksContainer;
-    }
 
+    constructor (tasksData) {
+        this.data = tasksData;
+    }
+    
     #tasksContainer = document.querySelector('.tasks-container');
-    // #tasks = tasksArr;
 
     clearScreen() {
         const container = document.querySelector('.tasks-container');
@@ -18,11 +18,13 @@ export default class Screen {
 
     renderDefault() {
         this.clearScreen();
-        // for (const task in this.#tasks) {
-        //     const taskObj = this.#tasks[task];
+        // for (const task in tasksArray) {
+        //     const taskObj = tasksArray[task];
         //     console.log(taskObj);
         //     this.#tasksContainer.append(taskCard(taskObj));
         // }
+
+        // TEST
         const test = document.createElement('h1');
         test.textContent = 'INBOXXX';
         this.#tasksContainer.append(test); 
@@ -30,8 +32,8 @@ export default class Screen {
 
     filterToday() {
         this.clearScreen();
-        // for (const task in this.#tasks) {
-        //     const taskObj = this.#tasks[task];
+        // for (const task in tasksArray) {
+        //     const taskObj = tasksArray[task];
         //     const todayDate = format(new Date(), 'yyyy-MM-dd');
             
         //     if (todayDate === taskObj.date) {
@@ -39,6 +41,7 @@ export default class Screen {
         //     }  
         // }
 
+        // TEST
         const test = document.createElement('h1');
         test.textContent = 'TODAYYYY';
         this.#tasksContainer.append(test);
