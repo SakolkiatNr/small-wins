@@ -1,4 +1,6 @@
 import Task from "./taskData";
+import { taskCard } from "../app/taskCard";
+
 
 function inputValue() {
     const title = document.querySelector('.title-input').value;
@@ -26,14 +28,20 @@ function newTask() {
 export function submitBtnHandler(tasksData) {
     const target = document.getElementById('add-task');
     const targetContainer = document.querySelector('.input-container');
-    
+
     target.addEventListener('click', (e) => {
         e.preventDefault();
         
         // Add input data to tasksData
-        console.log('adding task input to database...')
         tasksData.addTask(newTask());
+        createTaskCard(newTask());
+
+        // close input container
         targetContainer.remove();
     });
 }
 
+function createTaskCard(taskObj) {
+    const tasksCont = document.querySelector('.tasks-container');
+    tasksCont.append(taskCard(taskObj));
+}

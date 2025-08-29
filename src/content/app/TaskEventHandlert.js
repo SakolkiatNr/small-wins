@@ -6,7 +6,7 @@ import Screen from "./screen";
 
 export function activeTaskEventHandler() {
     const tasks = new TasksData();
-    const newScreen = new Screen(tasks);
+    const newScreen = new Screen(tasks.data);
 
     updateContentScreen(newScreen);
     activeAddTaskButton(tasks);

@@ -6,7 +6,7 @@ import { format } from "date-fns";
 export default class Screen {
 
     constructor (tasksData) {
-        this.data = tasksData;
+        this.tasks = tasksData;
     }
     
     #tasksContainer = document.querySelector('.tasks-container');
@@ -18,17 +18,18 @@ export default class Screen {
 
     renderDefault() {
         this.clearScreen();
-        
-        // for (const task in tasksArray) {
-        //     const taskObj = tasksArray[task];
-        //     console.log(taskObj);
-        //     this.#tasksContainer.append(taskCard(taskObj));
-        // }
 
-        // TEST
-        const test = document.createElement('h1');
-        test.textContent = 'INBOXXX';
-        this.#tasksContainer.append(test); 
+        for (const task in this.tasks) {
+            const taskObj = this.tasks[task];
+            
+            // render task obj
+            this.#tasksContainer.append(taskCard(taskObj));
+        }
+
+        // // TEST
+        // const test = document.createElement('h1');
+        // test.textContent = 'INBOXXX';
+        // this.#tasksContainer.append(test); 
     }
 
     filterToday() {
