@@ -1,6 +1,11 @@
 import Screen from "./screen";
 
 // change Header name
+function changeHeader(name) {
+    const headerTarget = document.querySelector('.content-header');
+    headerTarget.innerHTML = name;
+}
+
 export function updateContentScreen(screenObj) {
     const btnContainer = document.querySelector('.sidebar-btns');
     btnContainer.addEventListener('click', (e) => {
@@ -12,9 +17,3 @@ export function updateContentScreen(screenObj) {
         if (e.target.id === 'week-btn') screenObj.filterWeek();
     });
 }
-
-function changeHeader(name) {
-    const headerTarget = document.querySelector('.content-header');
-    headerTarget.innerHTML = name;
-}
-

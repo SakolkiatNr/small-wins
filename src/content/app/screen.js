@@ -18,6 +18,7 @@ export default class Screen {
 
     renderDefault() {
         this.clearScreen();
+        
         // for (const task in tasksArray) {
         //     const taskObj = tasksArray[task];
         //     console.log(taskObj);
@@ -75,3 +76,10 @@ export default class Screen {
 
     }
 }
+
+// TODO
+// get add button to fill data into database
+// filter task functions
+// Project arrays
+// link project to task tag
+// 

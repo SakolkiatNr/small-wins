@@ -1,5 +1,3 @@
-// import { addTaskToArr } from "./getDataInfo";
-
 
 function createInputContainer() {
    // Input container
@@ -97,9 +95,9 @@ function tagInput() {
     tagInput.classList.add('tag-input');
     
     const tag1 = document.createElement('option');
-    tag1.textContent = 'test tag1';
+    tag1.textContent = 'Project 1';
     const tag2 = document.createElement('option');
-    tag2.textContent = 'taggggg 2';
+    tag2.textContent = 'Project 2';
 
     tagInput.append(tag1, tag2);
     
@@ -128,16 +126,6 @@ function createSubmitNewTaskBtn() {
 
 
 // BUTTONS FUNCTIONS
-function submitBtn() {
-    const target = document.getElementById('add-task');
-    target.addEventListener('click', (e) => {
-        e.preventDefault();
-
-        // addTaskToArr();
-        removeTaskInput();
-    })
-}
-
 function removeTaskInput() {
     const targetContainer = document.querySelector('.input-container');
     targetContainer.remove();
@@ -155,5 +143,17 @@ export function renderAddTask(target) {
         const addTaskContainer = createInputContainer();
         target.append(addTaskContainer);
         activeCancelBtn();
-        submitBtn();
  }
+
+
+ export function submitBtnHandler(tasksData) {
+    const target = document.getElementById('add-task');
+    const targetContainer = document.querySelector('.input-container');
+
+    target.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        tasksData.addTask(newTask());
+        targetContainer.remove();
+    });
+}

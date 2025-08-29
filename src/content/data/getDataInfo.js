@@ -1,6 +1,4 @@
 import Task from "./taskData";
-// import { tasksArr } from "./taskData";
-import TasksData from "./tasks";
 
 function inputValue() {
     const title = document.querySelector('.title-input').value;
@@ -12,7 +10,7 @@ function inputValue() {
     return {title, desc, date, prio, tag};
 }
 
-function NewTask() {
+function newTask() {
     const inputValues = inputValue();
     
     const newTask = new Task(
@@ -25,3 +23,15 @@ function NewTask() {
     return newTask;
 }
 
+// Add input data to tasksData
+export function submitBtnHandler(tasksData) {
+    const target = document.getElementById('add-task');
+    const targetContainer = document.querySelector('.input-container');
+
+    target.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        tasksData.addTask(newTask());
+        targetContainer.remove();
+    });
+}
