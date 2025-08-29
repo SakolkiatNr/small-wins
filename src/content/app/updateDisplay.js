@@ -1,5 +1,5 @@
-// change Header name
 function changeHeader(name) {
+    // change Header name
     const headerTarget = document.querySelector('.content-header');
     headerTarget.innerHTML = name;
 }

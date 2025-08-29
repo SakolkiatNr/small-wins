@@ -4,7 +4,7 @@ import { format } from "date-fns";
 
 export default class Screen {
 
-    constructor (tasksData) {
+    constructor (tasksData, tasksContainer) {
         this.tasks = tasksData;
     }
     

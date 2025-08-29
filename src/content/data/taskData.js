@@ -31,7 +31,6 @@ export default class Task {
     }
 
     set toggleStatus(newStatus) {
-        newStatus = !this.status;
         this.status = newStatus;
     }
     
