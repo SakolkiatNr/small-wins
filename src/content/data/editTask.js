@@ -65,7 +65,3 @@ function confirmEditBtn() {
 
     return addTaskBtn;
 }
-
-// change element class?
-// remove edit window element
-// taskcontainer#id append new value card
