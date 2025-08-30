@@ -1,6 +1,6 @@
 import TasksData from "../data/tasks"
-// import { editInputContainer } from "../data/showCurrentTaskData";
 import { editInputContainer } from "../data/editTask";
+import { taskCardElements } from "./taskCard";
 
 export default class TaskCardHandler {
     constructor(TasksData, screen) {
@@ -12,10 +12,6 @@ export default class TaskCardHandler {
         // find target task
         const taskIndex = this.tasks.data.findIndex(obj => obj.id === taskId);
 
-        // console.log(`Task Index: ${taskIndex}`);
-        // console.log('Task array:', this.tasks.data[taskIndex].id);
-        // console.log('looking for id:', taskId);
-
         if (taskIndex > -1) {
             this.tasks.data[taskIndex].toggleStatus();
         }
@@ -25,11 +21,11 @@ export default class TaskCardHandler {
         const taskIndex = this.tasks.data.findIndex(obj => obj.id === taskId);
 
         if (taskIndex > -1) {
-            // this.tasks
            this.tasks.data.splice(taskIndex, 1);
         }
     }
 
+    // EDIT TASK FUNCTIONS
     getCurrentTaskData(taskId) {
         const taskIndex = this.tasks.data.findIndex(obj => obj.id === taskId);
 
@@ -55,12 +51,22 @@ export default class TaskCardHandler {
     }
 
     showCurrentTaskData(taskData, taskElements) {
+        // set value to Task data of edit input element
         for (const task in taskElements) {
             taskElements[task].value = taskData[task];
         }
     }
 
-    // click event action in tasks container
+    renderCard(taskId) {
+        const taskIndex = this.tasks.data.findIndex(obj => obj.id === taskId);
+        if (taskIndex > -1) {
+            return this.tasks.data[taskIndex];
+        }
+    }
+
+
+
+    // CLICK EVENT ACTION
     TaskBtn(event) {
         const taskCard = event.target.closest('.task-container');
         if (!taskCard) return;
@@ -88,9 +94,26 @@ export default class TaskCardHandler {
             removeCardElements(taskCard);
             taskCard.append(editInputContainer());
 
+            // show current task data in edit input
             const taskData = this.getCurrentTaskData(taskId);
             const taskCardEle = this.getEditInputElements(taskCard);
             this.showCurrentTaskData(taskData, taskCardEle);
+            return;
+        }
+
+        // cancel edit btn
+        if (event.target.closest('.cancel-btn')) {
+            event.preventDefault();
+
+            console.log('oh hi~');
+            removeCardElements(taskCard);
+            taskCard.append(taskCardElements(this.renderCard(taskId)));
+        }
+
+        // confirm edit btn
+        if (event.target.closest('.confirm-btn')) {
+            event.preventDefault();
+            console.log('hellooo!');
         }
     }
 }
@@ -99,12 +122,3 @@ function removeCardElements(taskContainer) {
     taskContainer.innerHTML = '';
 }
 
-
-
-function getDataFromValue() {
-
-}
-
-function newCardValueDisplay() {
-
-}

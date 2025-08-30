@@ -79,7 +79,7 @@ function removeTaskElement() {
     return remove;
 }
 
-function taskCardElements(obj) {
+export function taskCardElements(obj) {
     // elements container
     const container = document.createElement('div');
     container.classList.add('card-elements-cont');
@@ -112,8 +112,8 @@ function taskCardElements(obj) {
     return container;
 }
 
-// Render taskObj
 export function taskCard(obj) {
+    // Create Task card element
     const container = taskContainer(obj.id);
 
     // append to task container
