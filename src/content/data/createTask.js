@@ -1,3 +1,5 @@
+import { format } from "date-fns";
+
 
 function createInputContainer() {
    // Input container
@@ -56,10 +58,12 @@ export function descInput() {
 }
 
 export function dateInput() {
+    const todayDate = format(new Date(), 'yyyy-MM-dd');
+
     const dateInput = document.createElement('input');
     dateInput.classList.add('date-input');
     dateInput.setAttribute('type', 'date');
-    dateInput.setAttribute('min', '2025-08-27');
+    dateInput.setAttribute('min', todayDate);
     // console.log(new Date());
 
     return dateInput;
