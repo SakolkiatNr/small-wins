@@ -28,13 +28,14 @@ function newTask() {
 export function submitBtnHandler(tasksData) {
     const target = document.getElementById('add-task');
     const targetContainer = document.querySelector('.input-container');
-
+    
     target.addEventListener('click', (e) => {
         e.preventDefault();
+        const task = newTask();
         
         // Add input data to tasksData
-        tasksData.addTask(newTask());
-        createTaskCard(newTask());
+        tasksData.addTask(task);
+        createTaskCard(task);
 
         // close input container
         targetContainer.remove();

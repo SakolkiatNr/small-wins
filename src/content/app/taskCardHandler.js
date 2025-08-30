@@ -1,18 +1,22 @@
 import TasksData from "../data/tasks"
 
 export default class TaskCardHandler {
-    construct(TasksData, screen) {
+    constructor(TasksData, screen) {
         this.tasks = TasksData;
         this.screen = screen;
     }
 
-    completeTask(id) {
+    completeTask(taskId) {
         // find target task
-        console.log(this.tasks);
-        console.log(`task ID: ${id}`);
-        // const taskIndex = this.tasks.data.findIndex(obj => obj.id === id);
+        // const taskIndex = this.tasks.findIndex(obj => obj.id === id);
+        // console.log(`task index: ${taskIndex}`);
+
+        console.log('Task array:', this.tasks[0].id);
+        console.log('looking for id:', taskId);
+
         // if (taskIndex > -1) {
-        //     this.tasks.data[taskIndex].toggleStatus(true);
+            // this.tasks.data[taskIndex].toggleStatus(true);
+            // console.log(`Task Index: ${taskIndex}`);
         // }
     }
 
@@ -27,6 +31,7 @@ export default class TaskCardHandler {
     TaskBtn(event) {
         const taskCard = event.target.closest('.task-container');
         if (!taskCard) return;
+        // element id
         const taskId = taskCard.dataset.id;
 
         // checkbox element
