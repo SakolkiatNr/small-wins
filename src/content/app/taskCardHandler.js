@@ -73,8 +73,8 @@ export default class TaskCardHandler {
             // change task data to current edit input
             this.tasks.data[taskIndex].changeName(editInputElements[0].value);
             this.tasks.data[taskIndex].changeDesc(editInputElements[1].value);
-            this.tasks.data[taskIndex].changePrio(editInputElements[2].value);
-            this.tasks.data[taskIndex].changeDate(editInputElements[3].value);
+            this.tasks.data[taskIndex].changeDate(editInputElements[2].value);
+            this.tasks.data[taskIndex].changePrio(editInputElements[3].value);
             this.tasks.data[taskIndex].changeTag(editInputElements[4].value);
         }
     }
