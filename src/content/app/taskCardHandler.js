@@ -8,21 +8,24 @@ export default class TaskCardHandler {
 
     completeTask(taskId) {
         // find target task
-        const taskIndex = this.tasks.findIndex(obj => obj.id === taskId);
+        const taskIndex = this.tasks.data.findIndex(obj => obj.id === taskId);
 
-        console.log(`Task Index: ${taskIndex}`);
-        console.log('Task array:', this.tasks[taskIndex].id);
-        console.log('looking for id:', taskId);
+        // console.log(`Task Index: ${taskIndex}`);
+        // console.log('Task array:', this.tasks.data[taskIndex].id);
+        // console.log('looking for id:', taskId);
 
         if (taskIndex > -1) {
-            this.tasks[taskIndex].toggleStatus();
-            // console.log(this.tasks[taskIndex].name);
-            // console.log('Matched ID!');
+            this.tasks.data[taskIndex].toggleStatus();
         }
     }
 
-    removeTask(id) {
+    removeTask(taskId) {
+        const taskIndex = this.tasks.data.findIndex(obj => obj.id === taskId);
 
+        if (taskIndex > -1) {
+            // this.tasks
+           this.tasks.data.splice(taskIndex, 1);
+        }
     }
 
     editTask() {
@@ -38,6 +41,13 @@ export default class TaskCardHandler {
         // checkbox button
         if (event.target.closest('.task-chbx')){
             this.completeTask(taskId);
+            taskCard.remove();
+            return;
+        }
+
+        // remove btn
+        if (event.target.closest('.remove-task')) {
+            this.removeTask(taskId);
             taskCard.remove();
             return;
         }

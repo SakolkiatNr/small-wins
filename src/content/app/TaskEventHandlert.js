@@ -15,7 +15,7 @@ export function activeTaskEventHandler() {
     activeAddTaskButton(tasks);
     
     // test
-    const taskHandler = new TaskCardHandler(tasks.data, newScreen);
+    const taskHandler = new TaskCardHandler(tasks, newScreen);
     container.addEventListener('click', (e) => {
         taskHandler.TaskBtn(e);
     })
