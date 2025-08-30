@@ -35,9 +35,11 @@ export default class TaskCardHandler {
         // element id
         const taskId = taskCard.dataset.id;
 
-        // checkbox element
+        // checkbox button
         if (event.target.closest('.task-chbx')){
             this.completeTask(taskId);
+            taskCard.remove();
+            return;
         }
     }
 }
