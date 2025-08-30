@@ -17,3 +17,8 @@ export function activeAddTaskButton(tasksData) {
     })
 }
 
+
+// TODO
+// Project screen and project tag
+// hide ADDTASK button when change page
+    // show in project and Inbox only

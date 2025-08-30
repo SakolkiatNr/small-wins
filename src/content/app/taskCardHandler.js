@@ -1,6 +1,5 @@
-import TasksData from "../data/tasks"
-import { editInputContainer } from "../data/editTask";
 import { taskCardElements } from "./taskCard";
+import { editInputContainer } from "../data/editTask";
 
 export default class TaskCardHandler {
     constructor(TasksData, screen) {
@@ -70,7 +69,7 @@ export default class TaskCardHandler {
         if (taskIndex > -1) {
             const editInputElements = this.getEditInputElements(cardTargetElement);
 
-            // change task data to current edit input
+            // update task data to current edit input
             this.tasks.data[taskIndex].changeName(editInputElements[0].value);
             this.tasks.data[taskIndex].changeDesc(editInputElements[1].value);
             this.tasks.data[taskIndex].changeDate(editInputElements[2].value);
