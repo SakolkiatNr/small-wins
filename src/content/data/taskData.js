@@ -10,28 +10,29 @@ export default class Task {
     }
 
     // Edit details
-    set changeName(newName) {
+    changeName(newName) {
         this.name = newName;
     }
 
-    set changeDesc(newDesc) {
+    changeDesc(newDesc) {
         this.desc = newDesc;
     }
 
-    set changePrio(newPrio) {
+    changePrio(newPrio) {
         this.priority = newPrio;
     }
 
-    set changeDate(newDate) {
+    changeDate(newDate) {
         this.date = newDate;
     }
 
-    set changeTag(newTag) {
+    changeTag(newTag) {
         this.tag = newTag;
     }
 
-    set toggleStatus(newStatus) {
-        this.status = newStatus;
+    toggleStatus() {
+        this.status = !this.status;
+        console.log(this.status);
     }
     
 };

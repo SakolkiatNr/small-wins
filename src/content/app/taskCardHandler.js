@@ -8,16 +8,17 @@ export default class TaskCardHandler {
 
     completeTask(taskId) {
         // find target task
-        // const taskIndex = this.tasks.findIndex(obj => obj.id === id);
-        // console.log(`task index: ${taskIndex}`);
+        const taskIndex = this.tasks.findIndex(obj => obj.id === taskId);
 
-        console.log('Task array:', this.tasks[0].id);
+        console.log(`Task Index: ${taskIndex}`);
+        console.log('Task array:', this.tasks[taskIndex].id);
         console.log('looking for id:', taskId);
 
-        // if (taskIndex > -1) {
-            // this.tasks.data[taskIndex].toggleStatus(true);
-            // console.log(`Task Index: ${taskIndex}`);
-        // }
+        if (taskIndex > -1) {
+            this.tasks[taskIndex].toggleStatus();
+            // console.log(this.tasks[taskIndex].name);
+            // console.log('Matched ID!');
+        }
     }
 
     removeTask(id) {

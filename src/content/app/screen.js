@@ -21,8 +21,10 @@ export default class Screen {
         for (const task in this.tasks) {
             const taskObj = this.tasks[task];
             
-            // render task obj
-            this.#tasksContainer.append(taskCard(taskObj));
+            // render task obj and not done
+            if (!taskObj.status) {
+                this.#tasksContainer.append(taskCard(taskObj));
+            }
         }
     }
 
@@ -32,8 +34,8 @@ export default class Screen {
             const taskObj = this.tasks[task];
             const todayDate = format(new Date(), 'yyyy-MM-dd');
 
-            // if task due today
-            if (todayDate === taskObj.date) {
+            // if task due today and not done yet
+            if (todayDate === taskObj.date && !taskObj.status) {
                 this.#tasksContainer.append(taskCard(taskObj));
             }  
         }
@@ -48,7 +50,7 @@ export default class Screen {
             const thisWeek = format(today.setDate(today.getDate() + 7), 'yyyy-MM-dd');
             
             // if task due date within 7 days
-            if (taskObj.date <= thisWeek ) {
+            if (taskObj.date <= thisWeek && !taskObj.status) {
                 this.#tasksContainer.append(taskCard(taskObj));
             }
         }
