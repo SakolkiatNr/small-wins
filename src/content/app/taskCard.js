@@ -79,9 +79,10 @@ function removeTaskElement() {
     return remove;
 }
 
-// Render taskObj
-export function taskCard(obj) {
-    const container = taskContainer(obj.id);
+function taskCardElements(obj) {
+    // elements container
+    const container = document.createElement('div');
+    container.classList.add('card-elements-cont');
 
     const subCont1 = taskSubContainer('check-box-cont');
     const subCont2 = taskSubContainer('task-details-cont');
@@ -106,9 +107,19 @@ export function taskCard(obj) {
     subCont2.append(taskDetail1, taskDetail2);
     subCont3.append(editTaskElement(), removeTaskElement());
 
-    // append to task container
     container.append(subCont1, subCont2, subCont3);
 
     return container;
 }
+
+// Render taskObj
+export function taskCard(obj) {
+    const container = taskContainer(obj.id);
+
+    // append to task container
+    container.append(taskCardElements(obj));
+
+    return container;
+}
+
 
