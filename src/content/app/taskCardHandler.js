@@ -55,6 +55,11 @@ export default class TaskCardHandler {
         // edit btn
         if (event.target.closest('.edit-task')) {
             console.log('lmao');
+            removeCardElements(taskCard);
         }
     }
+}
+
+function removeCardElements(taskContainer) {
+    taskContainer.innerHTML = '';
 }
