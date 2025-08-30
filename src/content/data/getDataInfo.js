@@ -46,3 +46,7 @@ function createTaskCard(taskObj) {
     const tasksCont = document.querySelector('.tasks-container');
     tasksCont.append(taskCard(taskObj));
 }
+
+function confirmEditHandler() {
+    // TODO
+}

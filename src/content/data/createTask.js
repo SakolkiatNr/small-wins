@@ -35,7 +35,7 @@ function createInputContainer() {
         return container; 
 }
 // INPUT ELEMENTs
-function titleInput() {
+export function titleInput() {
     const titleInput = document.createElement('input');
     titleInput.classList.add('title-input');
     titleInput.placeholder = 'Task title';
@@ -46,7 +46,7 @@ function titleInput() {
     return titleInput;
 }
 
-function descInput() {
+export function descInput() {
     const descInput = document.createElement('input');
     descInput.classList.add('desc-input');
     descInput.placeholder = 'Task Details';
@@ -55,7 +55,7 @@ function descInput() {
     return descInput;
 }
 
-function dateInput() {
+export function dateInput() {
     const dateInput = document.createElement('input');
     dateInput.classList.add('date-input');
     dateInput.setAttribute('type', 'date');
@@ -65,7 +65,7 @@ function dateInput() {
     return dateInput;
 }
 
-function priorityInput() {
+export function priorityInput() {
     // priority selection container
     const prioInput = document.createElement('select');
     prioInput.classList.add('prio-input');
@@ -90,7 +90,7 @@ function priorityInput() {
     return prioInput;
 }
 
-function tagInput() {
+export function tagInput() {
     const tagInput = document.createElement('select');
     tagInput.classList.add('tag-input');
     
