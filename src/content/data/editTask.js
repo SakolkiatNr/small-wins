@@ -1,9 +1,9 @@
-import { titleInput, descInput, dateInput, priorityInput, tagInput } from "./createTask";
+import { format } from "date-fns";
 
 export function editInputContainer() {
    // Input container
     const container = document.createElement('form');
-    container.classList.add('input-container');
+    container.classList.add('edit-input-container');
     container.append(leftContainerElements(), rightContainerElements());
     
     return container; 
@@ -20,8 +20,8 @@ function leftContainerElements() {
     
     
     // grouping input container
-    leftInputContainer.append(titleInput(), descInput());
-    leftBtnContainer.append(dateInput(), priorityInput(), tagInput());        
+    leftInputContainer.append(editTitleInput(), editDescInput());
+    leftBtnContainer.append(editDateInput(), editPriorityInput(), editTagInput());        
     
     // append input elements
     const leftContainer = document.createElement('div');
@@ -45,8 +45,78 @@ function rightContainerElements() {
     return rightContainer;
 }
 
-// INPUT ELEMENTs
+function editTitleInput() {
+    const titleInput = document.createElement('input');
+    titleInput.classList.add('title-edit');
+    titleInput.placeholder = 'Task title';
+    titleInput.setAttribute('type', 'text');
+    titleInput.setAttribute('required', '');
+    titleInput.value
 
+    return titleInput;
+}
+
+function editDescInput() {
+    const descInput = document.createElement('input');
+    descInput.classList.add('desc-edit');
+    descInput.placeholder = 'Task Details';
+    descInput.setAttribute('type', 'text');
+
+    return descInput;
+}
+
+function editDateInput() {
+    const todayDate = format(new Date(), 'yyyy-MM-dd');
+
+    const dateInput = document.createElement('input');
+    dateInput.classList.add('date-edit');
+    dateInput.setAttribute('type', 'date');
+    dateInput.setAttribute('min', todayDate);
+    // console.log(new Date());
+
+    return dateInput;
+}
+
+function editPriorityInput() {
+    // priority selection container
+    const prioInput = document.createElement('select');
+    prioInput.classList.add('prio-edit');
+    
+    const urgentInput = document.createElement('option');
+    urgentInput.textContent = 'Urgent';
+    urgentInput.classList.add('prio-urgent');
+    urgentInput.value = 'urgent';
+
+    const importantInput = document.createElement('option');
+    importantInput.classList.add('prio-important');
+    importantInput.textContent = 'Important';
+    importantInput.value = 'important';
+
+    const optionalInput = document.createElement('option');
+    optionalInput.classList.add('prio-optional');
+    optionalInput.textContent = 'Optional';
+    optionalInput.value = 'optional';
+
+    prioInput.append(urgentInput, importantInput, optionalInput);
+
+    return prioInput;
+}
+
+function editTagInput() {
+    const tagInput = document.createElement('select');
+    tagInput.classList.add('tag-edit');
+    
+    const tag1 = document.createElement('option');
+    tag1.textContent = 'Project 1';
+    const tag2 = document.createElement('option');
+    tag2.textContent = 'Project 2';
+
+    tagInput.append(tag1, tag2);
+    
+    return tagInput;
+}
+
+// BUTTON ELEMENTS
 function cancelEditBtn() {
     const cancelBtn = document.createElement('button');
     cancelBtn.classList.add('cancel-btn');
@@ -59,7 +129,7 @@ function cancelEditBtn() {
 function confirmEditBtn() {
     const addTaskBtn = document.createElement('button');
     addTaskBtn.classList.add('confirm-btn');
-    addTaskBtn.setAttribute('type', 'submit');
+    addTaskBtn.setAttribute('type', 'button');
     addTaskBtn.setAttribute('id', 'confirm-edit');
     addTaskBtn.textContent = 'Confirm';
 
