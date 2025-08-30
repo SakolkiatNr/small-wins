@@ -1,4 +1,5 @@
 import TasksData from "../data/tasks"
+// import { editInputContainer } from "../data/showCurrentTaskData";
 import { editInputContainer } from "../data/editTask";
 
 export default class TaskCardHandler {
@@ -29,7 +30,7 @@ export default class TaskCardHandler {
         }
     }
 
-    editTask(taskId, cardTargetElement) {
+    getCurrentTaskData(taskId) {
         const taskIndex = this.tasks.data.findIndex(obj => obj.id === taskId);
 
         // current task value
@@ -39,19 +40,24 @@ export default class TaskCardHandler {
         const prio = this.tasks.data[taskIndex].priority;
         const tag  = this.tasks.data[taskIndex].tag;
 
-        // get card data value
+        return [name, desc, date, prio, tag];
+    }
+
+    getEditInputElements(cardTargetElement) {
+        // select task edit input elements
         const titleEle = cardTargetElement.querySelector('.title-edit');
         const descEle  = cardTargetElement.querySelector('.desc-edit');
         const dateEle  = cardTargetElement.querySelector('.date-edit');
         const prioEle  = cardTargetElement.querySelector('.prio-edit');
-        const tagEle   = cardTargetElement.querySelector('.tag-edit');
+        const tagEle   = cardTargetElement.querySelector('.tag-edit');       
 
-        titleEle.value = name;
-        descEle.value = desc;
-        dateEle.value = date;
-        prioEle.value = prio;
-        tagEle.value = tag;
+        return [titleEle, descEle, dateEle, prioEle, tagEle];
+    }
 
+    showCurrentTaskData(taskData, taskElements) {
+        for (const task in taskElements) {
+            taskElements[task].value = taskData[task];
+        }
     }
 
     // click event action in tasks container
@@ -82,9 +88,9 @@ export default class TaskCardHandler {
             removeCardElements(taskCard);
             taskCard.append(editInputContainer());
 
-            // this.editTask(taskId); // receive current value
-            // getCurrentTaskData(taskCard); // edit input text
-            this.editTask(taskId, taskCard);
+            const taskData = this.getCurrentTaskData(taskId);
+            const taskCardEle = this.getEditInputElements(taskCard);
+            this.showCurrentTaskData(taskData, taskCardEle);
         }
     }
 }
@@ -93,14 +99,7 @@ function removeCardElements(taskContainer) {
     taskContainer.innerHTML = '';
 }
 
-function getCurrentTaskData(cardTargetElement) {
-    // get card data value
-    const titleEle = cardTargetElement.querySelector('.title-edit');
-    const descEle  = cardTargetElement.querySelector('.desc-edit');
-    const dateEle  = cardTargetElement.querySelector('.date-edit');
-    const prioEle  = cardTargetElement.querySelector('.prio-edit');
-    const tagEle   = cardTargetElement.querySelector('.tag-edit');
-}
+
 
 function getDataFromValue() {
 
