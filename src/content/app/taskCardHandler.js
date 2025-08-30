@@ -47,6 +47,7 @@ export default class TaskCardHandler {
         const prioEle  = cardTargetElement.querySelector('.prio-edit');
         const tagEle   = cardTargetElement.querySelector('.tag-edit');       
 
+        // return array of input elements
         return [titleEle, descEle, dateEle, prioEle, tagEle];
     }
 
@@ -61,6 +62,20 @@ export default class TaskCardHandler {
         const taskIndex = this.tasks.data.findIndex(obj => obj.id === taskId);
         if (taskIndex > -1) {
             return this.tasks.data[taskIndex];
+        }
+    }
+
+    changeTaskData(taskId, cardTargetElement) {
+        const taskIndex = this.tasks.data.findIndex(obj => obj.id === taskId);
+        if (taskIndex > -1) {
+            const editInputElements = this.getEditInputElements(cardTargetElement);
+
+            // change task data to current edit input
+            this.tasks.data[taskIndex].changeName(editInputElements[0].value);
+            this.tasks.data[taskIndex].changeDesc(editInputElements[1].value);
+            this.tasks.data[taskIndex].changePrio(editInputElements[2].value);
+            this.tasks.data[taskIndex].changeDate(editInputElements[3].value);
+            this.tasks.data[taskIndex].changeTag(editInputElements[4].value);
         }
     }
 
@@ -105,15 +120,20 @@ export default class TaskCardHandler {
         if (event.target.closest('.cancel-btn')) {
             event.preventDefault();
 
-            console.log('oh hi~');
+            // show default card
             removeCardElements(taskCard);
-            taskCard.append(taskCardElements(this.renderCard(taskId)));
+            const defaultCard = this.renderCard(taskId);
+            taskCard.append(taskCardElements(defaultCard));
         }
 
         // confirm edit btn
         if (event.target.closest('.confirm-btn')) {
             event.preventDefault();
-            console.log('hellooo!');
+
+            this.changeTaskData(taskId, taskCard);
+            removeCardElements(taskCard);
+            const editedCard = this.renderCard(taskId);
+            taskCard.append(taskCardElements(editedCard));
         }
     }
 }
