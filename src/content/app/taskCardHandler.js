@@ -1,4 +1,5 @@
 import TasksData from "../data/tasks"
+import { editInputContainer } from "../data/editTask";
 
 export default class TaskCardHandler {
     constructor(TasksData, screen) {
@@ -56,10 +57,15 @@ export default class TaskCardHandler {
         if (event.target.closest('.edit-task')) {
             console.log('lmao');
             removeCardElements(taskCard);
+            taskCard.append(editInputContainer());
         }
     }
 }
 
 function removeCardElements(taskContainer) {
     taskContainer.innerHTML = '';
+}
+
+function showTaskInput() {
+
 }

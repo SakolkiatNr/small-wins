@@ -1,6 +1,6 @@
 import { titleInput, descInput, dateInput, priorityInput, tagInput } from "./createTask";
 
-function createInputContainer() {
+export function editInputContainer() {
    // Input container
     const container = document.createElement('form');
     container.classList.add('input-container');
