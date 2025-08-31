@@ -9,7 +9,11 @@ function changeHeader(name) {
 export function updateContentScreen(screenObj) {
     const sidebarContainer = document.querySelector('.sidebar');
     sidebarContainer.addEventListener('click', (e) => {
-        changeHeader(e.target.innerHTML);
+        if (e.target.id != 'project-btn' &&
+            e.target.id != 'toggle-theme'
+        ) {
+            changeHeader(e.target.innerHTML);
+        }
 
         // change content display
         if (e.target.id === 'inbox-btn') screenObj.renderDefault();
@@ -18,6 +22,8 @@ export function updateContentScreen(screenObj) {
         if (e.target.id === 'complete-btn') screenObj.filterCompleted();
 
         // open project display
-        openProjectContainer(e)
+        if (e.target.id === 'project-btn') openProjectContainer();
+
+        if (e.target.id === 'toggle-theme') console.log('ligh/dark');
     });
 }

@@ -34,6 +34,7 @@ function projectNav() {
     projectNav.classList.add('pj-nav-container');
 
     const projectBtn = sidebarBtn('Projects', 'project-nav');
+    projectBtn.setAttribute('id', 'project-btn');
     
     const projectContainer = document.createElement('div');
     projectContainer.classList.add('projects-container');
@@ -45,6 +46,7 @@ function projectNav() {
 
 function toggleLightDarkBtn() {
     const toggleBtn = sidebarBtn('Light/Dark', 'toggle-btn');
+    toggleBtn.setAttribute('id', 'toggle-theme');
 
     return toggleBtn;
 }

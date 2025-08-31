@@ -1,15 +1,28 @@
-export function openProjectContainer(event) {
-    const projectBtn = event.target.closest('.project-nav');
+export function openProjectContainer() {
+    // toggle show class
+    const projectCnt = document.querySelector('.projects-container');
+    projectCnt.classList.toggle('show');
 
-    projectBtn.append(projectContainer());
-
-
+    projectCnt.innerHTML = '';
+    if (projectCnt.classList.contains('show')) {
+        console.log('render projects');
+        projectCnt.append('hello');
+    }
 }
 
-function projectContainer() {
-    const container = document.createElement('div');
-    container.append('hello!');
 
-    return container;
-}
+/* 
+
+if projects being clicked
+
+projects-container classlist toggle show/hide
+
+if projects-container classlist -> on
+    render project btns
+        tag-name
+        id
+if projects-container classlist -> off
+    projects-container.innerHTML = '';
+
+*/
 
