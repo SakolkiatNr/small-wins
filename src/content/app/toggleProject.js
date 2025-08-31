@@ -7,12 +7,11 @@ export function openProjectContainer() {
 
     // show/hide project list
     if (projectCnt.classList.contains('show')) {
-        // projectCnt.append('+ new project');
         projectCnt.append(createProjectBtn());
-        // projectCnt.append(createProjectInput());
     }
 }
 
+// NEW PROJECT INPUT ELEMENTS
 function createProjectBtn() {
     const addProjectBtn = document.createElement('button');
     addProjectBtn.classList.add('new-pj-btn');
@@ -21,7 +20,7 @@ function createProjectBtn() {
     return addProjectBtn;
 }
 
-function createProjectInput() {
+function newProjectInput() {
     // Project name input
     const input = document.createElement('input');
     input.classList.add('pj-name-input');
@@ -29,6 +28,22 @@ function createProjectInput() {
     input.setAttribute('placeholder', 'Project name');
     
     return input;
+}
+
+function newProjectCancelBtn() {
+    const btn = document.createElement('button');
+    btn.classList.add('pj-cancel-input');
+    btn.textContent = 'CANCEL';
+
+    return btn; 
+}
+
+function newProjectConfirmBtn() {
+    const btn = document.createElement('button');
+    btn.classList.add('pj-confirm-input');
+    btn.textContent = 'CONFIRM';
+
+    return btn;
 }
 
 // ok 
