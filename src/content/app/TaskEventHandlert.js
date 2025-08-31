@@ -11,10 +11,11 @@ export function activeTaskEventHandler() {
     const container = document.querySelector('.tasks-container');
     const taskHandler = new TaskCardHandler(tasks, newScreen);
 
-    updateContentScreen(newScreen, container);
+    updateContentScreen(newScreen);
     activeAddTaskButton(tasks);
     
     container.addEventListener('click', (e) => {
         taskHandler.TaskBtn(e);
     })
+
 }
