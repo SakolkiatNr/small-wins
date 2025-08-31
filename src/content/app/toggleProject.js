@@ -8,6 +8,7 @@ export function openProjectContainer() {
     // show/hide project list
     if (projectCnt.classList.contains('show')) {
         projectCnt.append(createProjectBtn());
+        projectCnt.append(newProjectInputContainer());
     }
 }
 
@@ -46,6 +47,19 @@ function newProjectConfirmBtn() {
     btn.textContent = 'CONFIRM';
 
     return btn;
+}
+
+function newProjectInputContainer() {
+    const container = document.createElement('button');
+    container.classList.add('new-pj-container');
+
+    // append input elements
+    container.append(newProjectInput(),
+                     newProjectCancelBtn(),
+                     newProjectConfirmBtn()
+                    );
+
+    return container;
 }
 
 // ok 
