@@ -33,6 +33,7 @@ function newProjectInput() {
 function newProjectCancelBtn() {
     const btn = document.createElement('button');
     btn.classList.add('pj-cancel-input');
+    btn.setAttribute('id', 'cancel-new-pj');
     btn.textContent = 'CANCEL';
 
     return btn; 
@@ -41,6 +42,7 @@ function newProjectCancelBtn() {
 function newProjectConfirmBtn() {
     const btn = document.createElement('button');
     btn.classList.add('pj-confirm-input');
+    btn.setAttribute('id', 'confirm-new-pj');
     btn.textContent = 'CONFIRM';
 
     return btn;
