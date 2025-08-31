@@ -5,20 +5,32 @@ export function openProjectContainer() {
 
     projectCnt.innerHTML = '';
 
-
+    // show/hide project list
     if (projectCnt.classList.contains('show')) {
         // projectCnt.append('+ new project');
         projectCnt.append(createProjectBtn());
+        // projectCnt.append(createProjectInput());
     }
 }
 
 function createProjectBtn() {
     const addProjectBtn = document.createElement('button');
+    addProjectBtn.classList.add('new-pj-btn');
     addProjectBtn.textContent = '+ New project';
-
     
     return addProjectBtn;
 }
+
+function createProjectInput() {
+    // Project name input
+    const input = document.createElement('input');
+    input.classList.add('pj-name-input');
+    input.setAttribute('type', 'text');
+    input.setAttribute('placeholder', 'Project name');
+    
+    return input;
+}
+
 // ok 
     // add new project to project database
     // app new Project to project container
