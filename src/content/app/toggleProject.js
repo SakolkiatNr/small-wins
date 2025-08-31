@@ -7,8 +7,9 @@ export function openProjectContainer() {
 
     // show/hide project list
     if (projectCnt.classList.contains('show')) {
-        projectCnt.append(createProjectBtn());
-        projectCnt.append(newProjectInputContainer());
+        projectCnt.append(createProjectBtn(),
+                          projectsContainer());
+        
     }
 }
 
@@ -58,6 +59,16 @@ function newProjectInputContainer() {
                      newProjectCancelBtn(),
                      newProjectConfirmBtn()
                     );
+
+    return container;
+}
+
+function projectsContainer() {
+    // project buttons container
+    const container = document.createElement('div');
+    container.classList.add('project-lists');
+
+    container.append(btn1, btn2, btn3);
 
     return container;
 }
