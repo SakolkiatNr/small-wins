@@ -4,25 +4,38 @@ export function openProjectContainer() {
     projectCnt.classList.toggle('show');
 
     projectCnt.innerHTML = '';
+
+
     if (projectCnt.classList.contains('show')) {
-        console.log('render projects');
-        projectCnt.append('hello');
+        // projectCnt.append('+ new project');
+        projectCnt.append(createProjectBtn());
     }
 }
 
+function createProjectBtn() {
+    const addProjectBtn = document.createElement('button');
+    addProjectBtn.textContent = '+ New project';
 
-/* 
+    
+    return addProjectBtn;
+}
+// ok 
+    // add new project to project database
+    // app new Project to project container
+// cancel
+    // remove input
 
-if projects being clicked
+function projectsBtn() {
+    // render project from project database
+        // change to current project page
+        // filter tag
+    // add delete project btn
+        // delete task that have the same project tags 
+        // delete project from database
+    
+}
 
-projects-container classlist toggle show/hide
+function projectBtn() {
+    // render current task with project id
 
-if projects-container classlist -> on
-    render project btns
-        tag-name
-        id
-if projects-container classlist -> off
-    projects-container.innerHTML = '';
-
-*/
-
+}
