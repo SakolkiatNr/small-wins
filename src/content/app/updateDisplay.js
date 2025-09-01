@@ -1,6 +1,5 @@
 import { openProjectContainer } from "./toggleProject";
 
-
 function changeHeader(name) {
     // change Header name
     const headerTarget = document.querySelector('.content-header');
@@ -25,7 +24,7 @@ export function updateContentScreen(screenObj) {
         if (e.target.id === 'complete-btn') screenObj.filterCompleted();
 
         // toggle project list container
-        if (e.target.id === 'project-btn') openProjectContainer(e);
+        // if (e.target.id === 'project-btn') openProjectContainer();
 
         // toggle light dark
         if (e.target.id === 'toggle-theme') console.log('ligh/dark');

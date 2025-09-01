@@ -1,5 +1,8 @@
-export function openProjectContainer(e) {
+import { renderProjects } from "./projectNavList";
+
+export function openProjectContainer(projectData) {
     // toggle show class
+    console.log('checking');
     const projectCnt = document.querySelector('.projects-container');
     projectCnt.classList.toggle('show');
 
@@ -9,12 +12,11 @@ export function openProjectContainer(e) {
     // show/hide project list
     if (projectCnt.classList.contains('show')) {
 
-        // 
+        // show create project button
         projectCnt.append(createProjectBtnContainer(),
                           projectsContainer());
         
-        // activeProjectContainer();
-        
+        renderProjects(projectData);
     }
 }
 

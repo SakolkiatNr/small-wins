@@ -4,7 +4,7 @@ import { activeTaskEventHandler } from "./app/TaskEventHandlert";
 
 import ProjectButtonsHandler from "./app/projectBtnHandler";
 import { ProjectData } from "./data/projectData";
-
+import { openProjectContainer } from "./app/toggleProject";
 
 export default function renderScreen() {
     const target = document.querySelector('.sidebar');
@@ -21,8 +21,16 @@ export default function renderScreen() {
     const pjData = new ProjectData();
     const pjBtnHandler = new ProjectButtonsHandler(pjData);
 
+    // project input button listener
     document.addEventListener('click', (event) => {
         pjBtnHandler.projectBtn(event);
     })
+
+    // toggle project container
+    const projectsBtn = document.querySelector('.project-nav');
+    projectsBtn.addEventListener('click', () => {
+        openProjectContainer(pjData.projects);
+    })
+
 
 }
