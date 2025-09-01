@@ -1,14 +1,21 @@
-export function openProjectContainer() {
+export function openProjectContainer(e) {
     // toggle show class
     const projectCnt = document.querySelector('.projects-container');
     projectCnt.classList.toggle('show');
 
+    // reset html
     projectCnt.innerHTML = '';
+
+    const projectList = new ProjectButtonsHandler();
 
     // show/hide project list
     if (projectCnt.classList.contains('show')) {
+
+        // 
         projectCnt.append(createProjectBtn(),
                           projectsContainer());
+        
+        // activeProjectContainer();
         
     }
 }
@@ -17,6 +24,7 @@ export function openProjectContainer() {
 function createProjectBtn() {
     const addProjectBtn = document.createElement('button');
     addProjectBtn.classList.add('new-pj-btn');
+    addProjectBtn.setAttribute('id', 'new-pj-btn');
     addProjectBtn.textContent = '+ New project';
     
     return addProjectBtn;
@@ -68,16 +76,46 @@ function projectsContainer() {
     const container = document.createElement('div');
     container.classList.add('project-lists');
 
-    container.append(btn1, btn2, btn3);
-
     return container;
 }
 
-// ok 
-    // add new project to project database
-    // app new Project to project container
-// cancel
-    // remove input
+// BUTTON FUNCTION
+
+function activeProjectContainer() {
+    const newPjBtn = document.querySelector('.new-pj-btn');
+    const listCnt = document.querySelector('.project-lists');
+
+    newPjBtn.addEventListener('click', (e) => {
+        console.log('test');
+
+        listCnt.append(newProjectInputContainer());
+           
+    })
+}
+
+class ProjectButtonsHandler {
+
+    #newPjBtn = document.querySelector('.new-pj-btn');
+    #listCnt = document.querySelector('.project-lists');
+
+    // Click button event handler
+    projectBtn(event) {
+
+        if (event.target.id === 'new-pj-btn') {
+
+            console.log('yo');
+        }        
+
+    }
+}
+
+
+
+
+
+
+
+
 
 function projectsBtn() {
     // render project from project database

@@ -8,9 +8,11 @@ function changeHeader(name) {
 
 export function updateContentScreen(screenObj) {
     const sidebarContainer = document.querySelector('.sidebar');
+
     sidebarContainer.addEventListener('click', (e) => {
         if (e.target.id != 'project-btn' &&
-            e.target.id != 'toggle-theme'
+            e.target.id != 'toggle-theme' &&
+            e.target.id != ''
         ) {
             changeHeader(e.target.innerHTML);
         }
@@ -22,8 +24,9 @@ export function updateContentScreen(screenObj) {
         if (e.target.id === 'complete-btn') screenObj.filterCompleted();
 
         // open project display
-        if (e.target.id === 'project-btn') openProjectContainer();
+        if (e.target.id === 'project-btn') openProjectContainer(e);
 
+        // toggle light dark
         if (e.target.id === 'toggle-theme') console.log('ligh/dark');
     });
 }

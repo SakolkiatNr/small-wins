@@ -4,7 +4,7 @@ import { taskCard } from "./taskCard";
 
 export default class Screen {
 
-    constructor (tasksData, tasksContainer) {
+    constructor (tasksData) {
         this.tasks = tasksData;
     }
     
