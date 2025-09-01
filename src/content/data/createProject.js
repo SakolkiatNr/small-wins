@@ -3,7 +3,6 @@ import { ProjectData } from "./projectData";
 
 function projectNameInput() {
     const target = document.querySelector('.pj-name-input');
-
     return target.value;
 }
 
@@ -15,8 +14,8 @@ export function newProject() {
     return newProject;
 }
 
-export function addProjectToDB(projectData) {
+export function addProjectToDB(projectData, project) {
     // add project to database
-    projectData.addProject(newProject());
+    projectData.addProject(project);
     console.log('add project to database');
 }

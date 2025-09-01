@@ -108,10 +108,11 @@ export default class ProjectButtonsHandler {
             newPjCnt.append(this.addNewPjBtn());
 
             // create new project
-            addProjectToDB(this.data);
-
-            // append new project button to project list
             const newPj = newProject();
+            addProjectToDB(this.data, newPj);
+
+            console.log(this.data);
+            // append new project button to project list
             listCnt.append(projectBtnContainer(newPj));
 
             this.removeNewPjInput();

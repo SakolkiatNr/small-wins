@@ -5,6 +5,6 @@ export function renderProjects(projectData) {
 
     // render projects from database
     for (const project in projectData) {
-        target.append(projectBtnContainer(project));
+        target.append(projectBtnContainer(projectData[project]));
     }
 }
