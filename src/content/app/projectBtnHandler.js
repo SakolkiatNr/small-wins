@@ -59,6 +59,25 @@ export default class ProjectButtonsHandler {
         return createProjectBtn();
     }
 
+    projectNameValidate(event) {
+    // validate name input
+    event.preventDefault();
+    
+    const input = document.querySelector('.pj-name-input');
+    const value = input.value.trim();
+
+    if (!value) {
+        input.setCustomValidity('Please enter a project name');
+        input.reportValidity();
+        return false;
+    }
+
+    input.setCustomValidity('');
+    input.reportValidity();
+
+    return true;
+}
+
     // Click button event handler
     projectBtn(event) {
         const newPjBtn = document.querySelector('.new-pj-btn');
@@ -80,15 +99,18 @@ export default class ProjectButtonsHandler {
         if (event.target.id === 'confirm-new-pj') {
             // show new project button
 
-            projectNameValidate(event);
-            // newPjCnt.append(this.addNewPjBtn());
-            // console.log('add to project data');
+            if (!this.projectNameValidate(event)) {
+                return;
+            }
 
-            // // create new project
-            // addProjectToDB(this.data);
-            // this.removeNewPjInput();
+            newPjCnt.append(this.addNewPjBtn());
 
+            // create new project
+            addProjectToDB(this.data);
+            
             // append new project 
+            
+            this.removeNewPjInput();
         }
 
     }
