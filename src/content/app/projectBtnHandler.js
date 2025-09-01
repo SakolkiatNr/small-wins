@@ -1,5 +1,7 @@
 import { createProjectBtn } from "./toggleProject";
-import { addProjectToDB } from "../data/createProject";
+import { addProjectToDB, newProject } from "../data/createProject";
+import { projectBtnContainer } from "./projectBtn";
+
 
 export default class ProjectButtonsHandler {
     constructor(projectData) {
@@ -86,7 +88,7 @@ export default class ProjectButtonsHandler {
 
         if (event.target.id === 'new-pj-btn') {
             // add new project input and remove new project button
-            listCnt.append(this.newProjectInputContainer());
+            newPjCnt.append(this.newProjectInputContainer());
             newPjBtn.remove();
         }
         
@@ -107,30 +109,13 @@ export default class ProjectButtonsHandler {
 
             // create new project
             addProjectToDB(this.data);
-            
-            // append new project 
-            
+
+            // append new project button to project list
+            const newPj = newProject();
+            listCnt.append(projectBtnContainer(newPj));
+
             this.removeNewPjInput();
         }
 
     }
-}
-
-function projectNameValidate(event) {
-    // validate name input
-    event.preventDefault();
-    
-    const input = document.querySelector('.pj-name-input');
-    const value = input.value.trim();
-
-    if (!value) {
-        input.setCustomValidity('Please enter a project name');
-        input.reportValidity();
-        return false;
-    }
-
-    input.setCustomValidity('');
-    input.reportValidity();
-
-    return true;
 }

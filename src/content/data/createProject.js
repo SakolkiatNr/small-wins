@@ -7,7 +7,7 @@ function projectNameInput() {
     return target.value;
 }
 
-function newProject() {
+export function newProject() {
     // create project data
     const projectName = projectNameInput();
     const newProject = new Project(projectName);

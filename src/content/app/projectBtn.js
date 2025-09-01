@@ -1,6 +1,6 @@
 function createProjectBtn(projectObj) {
     const btn = document.createElement('button');
-    btn.classsList.add('project-btn');
+    btn.classList.add('project-btn');
     btn.textContent = projectObj.name;
 
     return btn;
@@ -9,6 +9,7 @@ function createProjectBtn(projectObj) {
 function deleteProjectBtn() {
     const btn = document.createElement('button');
     btn.classList.add('delete-project');    
+    btn.textContent = 'DELETE';
 
     return btn;
 }
