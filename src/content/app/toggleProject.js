@@ -10,7 +10,7 @@ export function openProjectContainer(e) {
     if (projectCnt.classList.contains('show')) {
 
         // 
-        projectCnt.append(createProjectBtn(),
+        projectCnt.append(createProjectBtnContainer(),
                           projectsContainer());
         
         // activeProjectContainer();
@@ -19,15 +19,21 @@ export function openProjectContainer(e) {
 }
 
 // NEW PROJECT INPUT ELEMENTS
-function createProjectBtn() {
+export function createProjectBtn() {
     const addProjectBtn = document.createElement('button');
     addProjectBtn.classList.add('new-pj-btn');
     addProjectBtn.setAttribute('id', 'new-pj-btn');
     addProjectBtn.textContent = '+ New project';
 
+    return addProjectBtn;
+}
+
+function createProjectBtnContainer() {
     const addPjBtnCnt = document.createElement('div');
     addPjBtnCnt.classList.add('new-pj-btn-container');
-    addPjBtnCnt.append(addProjectBtn);
+
+    // append create project btn
+    addPjBtnCnt.append(createProjectBtn());
     
     return addPjBtnCnt;
 }

@@ -1,9 +1,11 @@
+import { createProjectBtn } from "./toggleProject";
+
 export default class ProjectButtonsHandler {
 
     #newPjBtn = document.querySelector('.new-pj-btn');
-    #listCnt = document.querySelector('.project-lists');
-    #prjCnt = document.querySelector('.projects-container');
+    #newPjCnt = document.querySelector('.new-pj-btn-container');
 
+    #listCnt = document.querySelector('.project-lists');
     newProjectInput() {
         // Project name input
         const input = document.createElement('input');
@@ -46,6 +48,15 @@ export default class ProjectButtonsHandler {
         return container;
     }
 
+    removeNewPjInput() {
+        const target = document.querySelector('.new-pj-container');
+        target.remove();
+    }
+
+    addNewPjBtn() {
+        return createProjectBtn();
+    }
+
 
 
     // Click button event handler
@@ -57,8 +68,9 @@ export default class ProjectButtonsHandler {
         }
         
         if (event.target.id === 'cancel-new-pj') {
-            this.#prjCnt.append('lmao');
-            
+            this.removeNewPjInput();
+            this.#newPjCnt.append(this.addNewPjBtn());
+
         }
 
     }
