@@ -1,17 +1,17 @@
 import { createProjectBtn } from "./toggleProject";
-
+import { addProjectToDB } from "../data/createProject";
 
 export default class ProjectButtonsHandler {
+    constructor(projectData) {
+        this.data = projectData;
+    }
 
-    #newPjBtn = document.querySelector('.new-pj-btn');
-    #newPjCnt = document.querySelector('.new-pj-btn-container');
-
-    #listCnt = document.querySelector('.project-lists');
     newProjectInput() {
         // Project name input
         const input = document.createElement('input');
         input.classList.add('pj-name-input');
         input.setAttribute('type', 'text');
+        input.setAttribute('required', '');
         input.setAttribute('placeholder', 'Project name');
         
         return input;
@@ -31,13 +31,14 @@ export default class ProjectButtonsHandler {
         const btn = document.createElement('button');
         btn.classList.add('pj-confirm-input');
         btn.setAttribute('id', 'confirm-new-pj');
+        btn.setAttribute('type', 'submit')
         btn.textContent = 'CONFIRM';
 
         return btn;
     }
 
     newProjectInputContainer() {
-        const container = document.createElement('button');
+        const container = document.createElement('form');
         container.classList.add('new-pj-container');
 
         // append input elements
@@ -60,26 +61,54 @@ export default class ProjectButtonsHandler {
 
     // Click button event handler
     projectBtn(event) {
+        const newPjBtn = document.querySelector('.new-pj-btn');
+        const newPjCnt = document.querySelector('.new-pj-btn-container');
+        const listCnt = document.querySelector('.project-lists'); 
 
         if (event.target.id === 'new-pj-btn') {
-            this.#listCnt.append(this.newProjectInputContainer());
-            this.#newPjBtn.remove();
+            // add new project input and remove new project button
+            listCnt.append(this.newProjectInputContainer());
+            newPjBtn.remove();
         }
         
         if (event.target.id === 'cancel-new-pj') {
+            // remove input and add new project button
             this.removeNewPjInput();
-            this.#newPjCnt.append(this.addNewPjBtn());
-            // console.log('cancel new project input ');
-
+            newPjCnt.append(this.addNewPjBtn());
         }
 
         if (event.target.id === 'confirm-new-pj') {
-            this.removeNewPjInput();
-            this.#newPjCnt.append(this.addNewPjBtn());
-            console.log('add to project data');
-            // add project to projects data
+            // show new project button
+
+            projectNameValidate(event);
+            // newPjCnt.append(this.addNewPjBtn());
+            // console.log('add to project data');
+
+            // // create new project
+            // addProjectToDB(this.data);
+            // this.removeNewPjInput();
+
             // append new project 
         }
 
     }
+}
+
+function projectNameValidate(event) {
+    // validate name input
+    event.preventDefault();
+    
+    const input = document.querySelector('.pj-name-input');
+    const value = input.value.trim();
+
+    if (!value) {
+        input.setCustomValidity('Please enter a project name');
+        input.reportValidity();
+        return false;
+    }
+
+    input.setCustomValidity('');
+    input.reportValidity();
+
+    return true;
 }

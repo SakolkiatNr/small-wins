@@ -45,17 +45,3 @@ function projectsContainer() {
 
     return container;
 }
-
-// BUTTON FUNCTION
-
-// function activeProjectContainer() {
-//     const newPjBtn = document.querySelector('.new-pj-btn');
-//     const listCnt = document.querySelector('.project-lists');
-
-//     newPjBtn.addEventListener('click', (e) => {
-//         console.log('test');
-
-//         listCnt.append(newProjectInputContainer());
-           
-//     })
-// }

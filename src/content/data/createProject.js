@@ -15,7 +15,8 @@ function newProject() {
     return newProject;
 }
 
-function addProject(projectData) {
+export function addProjectToDB(projectData) {
     // add project to database
     projectData.addProject(newProject());
+    console.log('add project to database');
 }

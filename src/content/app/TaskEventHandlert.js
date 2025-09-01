@@ -8,6 +8,7 @@ import { updateContentScreen } from "./updateDisplay";
 export function activeTaskEventHandler() {
     const tasks = new TasksData();
     const newScreen = new Screen(tasks.data);
+
     const container = document.querySelector('.tasks-container');
     const taskHandler = new TaskCardHandler(tasks, newScreen);
 
