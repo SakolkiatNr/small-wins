@@ -1,5 +1,6 @@
 import { createProjectBtn } from "./toggleProject";
 
+
 export default class ProjectButtonsHandler {
 
     #newPjBtn = document.querySelector('.new-pj-btn');
@@ -57,8 +58,6 @@ export default class ProjectButtonsHandler {
         return createProjectBtn();
     }
 
-
-
     // Click button event handler
     projectBtn(event) {
 
@@ -70,7 +69,7 @@ export default class ProjectButtonsHandler {
         if (event.target.id === 'cancel-new-pj') {
             this.removeNewPjInput();
             this.#newPjCnt.append(this.addNewPjBtn());
-            console.log('cancel new project input ');
+            // console.log('cancel new project input ');
 
         }
 
@@ -83,16 +82,4 @@ export default class ProjectButtonsHandler {
         }
 
     }
-}
-
-
-
-function projectsBtn() {
-    // render project from project database
-        // change to current project page
-        // filter tag
-    // add delete project btn
-        // delete task that have the same project tags 
-        // delete project from database
-    
 }
