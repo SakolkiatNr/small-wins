@@ -70,7 +70,16 @@ export default class ProjectButtonsHandler {
         if (event.target.id === 'cancel-new-pj') {
             this.removeNewPjInput();
             this.#newPjCnt.append(this.addNewPjBtn());
+            console.log('cancel new project input ');
 
+        }
+
+        if (event.target.id === 'confirm-new-pj') {
+            this.removeNewPjInput();
+            this.#newPjCnt.append(this.addNewPjBtn());
+            console.log('add to project data');
+            // add project to projects data
+            // append new project 
         }
 
     }
@@ -86,9 +95,4 @@ function projectsBtn() {
         // delete task that have the same project tags 
         // delete project from database
     
-}
-
-function projectBtn() {
-    // render current task with project id
-
 }
