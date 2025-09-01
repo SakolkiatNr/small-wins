@@ -1,4 +1,5 @@
 import { openProjectContainer } from "./toggleProject";
+import ProjectButtonsHandler from "./projectBtnHandler";
 
 function changeHeader(name) {
     // change Header name
@@ -28,5 +29,8 @@ export function updateContentScreen(screenObj) {
 
         // toggle light dark
         if (e.target.id === 'toggle-theme') console.log('ligh/dark');
+
+        const projectNavHandler = new ProjectButtonsHandler();
+        projectNavHandler.projectBtn(e);
     });
 }
