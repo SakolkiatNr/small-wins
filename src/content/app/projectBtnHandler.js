@@ -2,6 +2,7 @@ export default class ProjectButtonsHandler {
 
     #newPjBtn = document.querySelector('.new-pj-btn');
     #listCnt = document.querySelector('.project-lists');
+    #prjCnt = document.querySelector('.projects-container');
 
     newProjectInput() {
         // Project name input
@@ -13,6 +14,7 @@ export default class ProjectButtonsHandler {
         return input;
     }
 
+    // NEW PROJECT INPUT ELEMENTS
     newProjectCancelBtn() {
         const btn = document.createElement('button');
         btn.classList.add('pj-cancel-input');
@@ -36,21 +38,28 @@ export default class ProjectButtonsHandler {
         container.classList.add('new-pj-container');
 
         // append input elements
-        container.append(newProjectInput(),
-                        newProjectCancelBtn(),
-                        newProjectConfirmBtn()
+        container.append(this.newProjectInput(),
+                        this.newProjectCancelBtn(),
+                        this.newProjectConfirmBtn()
                         );
 
         return container;
     }
 
+
+
     // Click button event handler
     projectBtn(event) {
 
         if (event.target.id === 'new-pj-btn') {
-
-            console.log('yo');
-        }        
+            this.#listCnt.append(this.newProjectInputContainer());
+            this.#newPjBtn.remove();
+        }
+        
+        if (event.target.id === 'cancel-new-pj') {
+            this.#prjCnt.append('lmao');
+            
+        }
 
     }
 }
