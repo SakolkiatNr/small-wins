@@ -69,8 +69,16 @@ export default class Screen {
        } 
     }
 
-    filterProject(projectTag) {
-        // for (tag in tags) 
-        // append matching tag
+    filterProject(projectName) {
+        this.clearScreen();
+        console.log('lmao');
+
+        for (const task in this.tasks) {
+            const taskObj = this.tasks[task];
+
+            if (taskObj.tag === projectName) {
+                this.#tasksContainer.append(taskCard(taskObj));
+            }
+        }
     }
 }

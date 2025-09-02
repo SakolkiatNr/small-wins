@@ -25,8 +25,15 @@ export function updateContentScreen(screenObj) {
 
         // toggle project list container
         // if (e.target.id === 'project-btn') openProjectContainer();
+        if (e.target.closest('.project-btn')) screenObj.filterProject(e.target.textContent);
 
         // toggle light dark
         if (e.target.id === 'toggle-theme') console.log('ligh/dark');
     });
 }
+
+// function projectScreen(event) {
+//     // get project Name
+//     const name = event.textContent; 
+//     renderfilter(event.textContent);
+// }
