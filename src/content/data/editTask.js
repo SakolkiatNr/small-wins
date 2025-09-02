@@ -107,6 +107,11 @@ function editPriorityInput() {
 function editTagInput(projectData) {
     const tagInput = document.createElement('select');
     tagInput.classList.add('tag-edit');
+
+    // no tag
+    const tag = document.createElement('option');
+    tag.textContent = '';
+    tagInput.append(tag);
     
     renderProjectOption(projectData, tagInput);
     

@@ -98,6 +98,12 @@ export function tagInput(projectData) {
     const tagInput = document.createElement('select');
     tagInput.classList.add('tag-input');
     
+    // no tag
+    const tag = document.createElement('option');
+    tag.textContent = '';
+
+    tagInput.append(tag);
+
     // create option element from project database
     renderProjectOption(projectData, tagInput);
     
