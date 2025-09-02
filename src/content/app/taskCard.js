@@ -1,3 +1,5 @@
+import { format } from "date-fns";
+
 // Task container
 function taskContainer(id) {
     const container = document.createElement('div');
@@ -42,8 +44,13 @@ function taskDescElement(desc) {
 function taskDateElement(dueDate) {
     const date = document.createElement('p');
     date.classList.add('due-date');
-    date.textContent = `Due: ${dueDate}`;
-    
+
+    if (dueDate) {
+        const dueDateFormat = format(dueDate, 'PP');
+        date.textContent = `${dueDateFormat}`;
+    } else {
+        date.textContent = '';
+    }
     return date;
 }
 
@@ -58,7 +65,7 @@ function taskPrioElement(taskPrio) {
 function taskTagElement(tagName) {
     const tag = document.createElement('p');
     tag.classList.add('tag');
-    tag.textContent = `# ${tagName}`;
+    tag.textContent = `#${tagName}`;
 
     return tag;
 }
