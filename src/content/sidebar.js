@@ -13,6 +13,7 @@ function createLogo(name) {
 function sidebarBtn(name, className) {
     const btn = document.createElement('button');
     btn.classList.add(className);
+    btn.classList.add('sb-btn');
     btn.textContent = name;
 
     // console.log(typeof(btn));

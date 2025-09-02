@@ -7,6 +7,13 @@
 
     color: var(--font-color);
 }
+
+:root {
+
+    --sb-btn-font-clr: grey;
+    --sb-btn-font-focus: black;
+    --sb-bg-clr: rgb(239, 239, 239);
+}
 .logo {
     text-transform: uppercase;
 }
@@ -19,6 +26,34 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+
+/* SIDE BAR */
+.sidebar {
+    background-color: var(--sb-bg-clr);
+}
+
+.sb-btn {
+    border: none;
+    /* margin: 6px 0px; */
+    padding: 6px;
+
+    font-weight: bold;
+    text-align: left;
+    color: var(--sb-btn-font-clr);
+}
+
+.sb-btn:hover {
+    color: var(--sb-btn-font-focus);
+}
+
+
+
+
+
+
+
+
 
 /* task input */
 .input-container {
