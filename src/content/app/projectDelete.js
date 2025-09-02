@@ -20,10 +20,12 @@ export function addDeleteProjectBtnListener(projectData) {
         // find target btn project Id
         if (e.target.className === 'delete-project') {
 
-            const projectID = e.target.closest('.project-cnt').dataset.id;
-            // console.log(projectID);
+            const projectContainer = e.target.closest('.project-cnt');
+            const projectID = projectContainer.dataset.id;
 
+            // remove project from database and remove element
             deleteProject(projectID, projectData);
+            projectContainer.remove();
         }
     });
 }
