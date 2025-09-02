@@ -31,9 +31,3 @@ export function updateContentScreen(screenObj) {
         if (e.target.id === 'toggle-theme') console.log('ligh/dark');
     });
 }
-
-// function projectScreen(event) {
-//     // get project Name
-//     const name = event.textContent; 
-//     renderfilter(event.textContent);
-// }

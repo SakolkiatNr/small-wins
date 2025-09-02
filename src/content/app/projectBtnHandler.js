@@ -117,6 +117,5 @@ export default class ProjectButtonsHandler {
 
             this.removeNewPjInput();
         }
-
     }
 }

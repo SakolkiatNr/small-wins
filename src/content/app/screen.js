@@ -1,6 +1,5 @@
 import { format } from "date-fns";
 import { taskCard } from "./taskCard";
-// import { taskCard } from "./taskCard";
 
 export default class Screen {
 
@@ -71,7 +70,7 @@ export default class Screen {
 
     filterProject(projectName) {
         this.clearScreen();
-        console.log('lmao');
+        console.log(`Project name: ${projectName}`);
 
         for (const task in this.tasks) {
             const taskObj = this.tasks[task];

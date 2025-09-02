@@ -6,16 +6,19 @@ import { updateContentScreen } from "./updateDisplay";
 // import { ProjectData } from "../data/projectData";
 
 
-export function activeTaskEventHandler(projectData) {
-    const tasks = new TasksData();
-    const newScreen = new Screen(tasks.data);
-
-    const container = document.querySelector('.tasks-container');
-    const taskHandler = new TaskCardHandler(tasks, newScreen, projectData);
+export function activeTaskEventHandler(projectData, tasksData, tasksHandler, screen) {
+    // const tasks = new TasksData();
+    // const newScreen = new Screen(tasks.data);
+    // const taskHandler = new TaskCardHandler(tasks, newScreen, projectData);
+    
+    const tasks = tasksData;
+    const newScreen = screen;
+    const taskHandler = tasksHandler;
 
     updateContentScreen(newScreen);
     activeAddTaskButton(tasks, projectData);
     
+    const container = document.querySelector('.tasks-container');
     container.addEventListener('click', (e) => {
         taskHandler.TaskBtn(e);
     })
