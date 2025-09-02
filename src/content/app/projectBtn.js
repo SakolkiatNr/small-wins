@@ -9,7 +9,7 @@ function createProjectBtn(projectObj) {
 function deleteProjectBtn() {
     const btn = document.createElement('button');
     btn.classList.add('delete-project');    
-    btn.textContent = 'DELETE';
+    btn.textContent = 'X';
 
     return btn;
 }

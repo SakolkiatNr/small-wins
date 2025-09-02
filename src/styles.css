@@ -9,11 +9,11 @@
 }
 
 :root {
-
     --sb-btn-font-clr: grey;
     --sb-btn-font-focus: black;
     --sb-bg-clr: rgb(239, 239, 239);
 }
+
 .logo {
     text-transform: uppercase;
 }
@@ -22,13 +22,14 @@ body {
     display: flex;
 }
 
+
+
+/* SIDE BAR */
 .sidebar-btns {
     display: flex;
     flex-direction: column;
 }
 
-
-/* SIDE BAR */
 .sidebar {
     background-color: var(--sb-bg-clr);
 }
@@ -47,7 +48,14 @@ body {
     color: var(--sb-btn-font-focus);
 }
 
+.projects-container {
+    margin-left: 32px;
+}
 
+.projects-container button {
+    padding: 3px 3px;
+    border: none;
+}
 
 
 
