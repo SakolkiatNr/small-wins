@@ -8,9 +8,10 @@ export function updateContentScreen(screenObj) {
     const sidebarContainer = document.querySelector('.sidebar');
 
     sidebarContainer.addEventListener('click', (e) => {
-        if (e.target.id != 'project-btn' &&
-            e.target.id != 'toggle-theme' &&
-            e.target.id != ''
+        if (e.target.id === 'inbox-btn' ||
+            e.target.id === 'today-btn' ||
+            e.target.id === 'week-btn'  ||
+            e.target.id === 'complete-btn'
         ) {
             changeHeader(e.target.innerHTML);
         }
@@ -23,7 +24,10 @@ export function updateContentScreen(screenObj) {
 
         // toggle project list container
         // if (e.target.id === 'project-btn') openProjectContainer();
-        if (e.target.closest('.project-btn')) screenObj.filterProject(e.target.textContent);
+        if (e.target.closest('.project-btn')) {
+            changeHeader(e.target.textContent);
+            screenObj.filterProject(e.target.textContent);
+        }
 
         // toggle light dark
         if (e.target.id === 'toggle-theme') console.log('ligh/dark');
