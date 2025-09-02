@@ -37,7 +37,7 @@ export default function renderScreen() {
     // toggle project container
     const projectsBtn = document.querySelector('.project-nav');
     projectsBtn.addEventListener('click', () => {
-        openProjectContainer(pjData.projects);
+        openProjectContainer(pjData.projects, tasks.data);
     })
 
 

@@ -1,5 +1,3 @@
-import { openProjectContainer } from "./toggleProject";
-
 function changeHeader(name) {
     // change Header name
     const headerTarget = document.querySelector('.content-header');

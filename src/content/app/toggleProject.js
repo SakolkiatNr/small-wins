@@ -1,8 +1,9 @@
+import TasksData from "../data/tasks";
 import { addDeleteProjectBtnListener } from "./projectDelete";
 import { renderProjects } from "./projectNavList";
 
 
-export function openProjectContainer(projectData) {
+export function openProjectContainer(projectData, tasksData) {
     // toggle show class
     console.log('checking');
     const projectCnt = document.querySelector('.projects-container');
@@ -21,7 +22,7 @@ export function openProjectContainer(projectData) {
         renderProjects(projectData);
 
         // run active task delete btn event listener here
-        addDeleteProjectBtnListener(projectData);
+        addDeleteProjectBtnListener(projectData, tasksData);
     }
 }
 
