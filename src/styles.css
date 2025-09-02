@@ -11,7 +11,9 @@
 :root {
     --sb-btn-font-clr: grey;
     --sb-btn-font-focus: black;
+
     --sb-bg-clr: rgb(239, 239, 239);
+    --sb-bg-clr-focus: rgb(170, 169, 169);
 }
 
 .logo {
@@ -32,34 +34,74 @@ body {
 
 .sidebar {
     background-color: var(--sb-bg-clr);
+    width: 150px;
+    height: 100vh;
+    /* position: relative; */
+
+    box-sizing: border-box;
 }
 
 .sb-btn {
     border: none;
-    /* margin: 6px 0px; */
     padding: 6px;
 
-    font-weight: bold;
+    /* font-weight: bold; */
     text-align: left;
     color: var(--sb-btn-font-clr);
 }
 
 .sb-btn:hover {
     color: var(--sb-btn-font-focus);
+    background-color: var(--sb-bg-clr-focus);
+    font-weight: bold;
 }
 
 .projects-container {
     margin-left: 32px;
+    /* border: 1px solid red; */
 }
 
 .projects-container button {
-    padding: 3px 3px;
+    /* padding: 3px 3px; */
     border: none;
 }
 
+.project-cnt {
+    display: flex;
+    justify-content: space-between;
+    /* border: 1px solid green; */
+}
 
+.pj-nav-container {
+    margin-top: 16px;
+}
 
+.project-nav {
+    width: 100%;
+}
 
+.project-btn,
+.new-pj-btn {
+    width: 100%;
+    max-width: 150px;
+    text-align: left;
+    overflow:hidden;
+
+    /* font-weight: bold; */
+    text-align: left;
+    color: var(--sb-btn-font-clr);
+}
+
+.project-btn:hover,
+.new-pj-btn:hover {
+    background-color: var(--sb-bg-clr-focus);
+    color: var(--sb-btn-font-focus);
+    font-weight: bold;
+}
+
+.delete-project {
+    padding: 0px 8px;
+}
 
 
 
