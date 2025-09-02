@@ -1,18 +1,29 @@
-export function deleteProject(projectId, projectData) {
-    
+function deleteProject(projectId, projectData) {
+    // delete project from database
     const taskIndex = projectData.findIndex(obj => obj.id === projectId);
     if (taskIndex > -1) {
         console.log('found project ID!');
-        // return this.tasks.data[taskIndex];
+        
+        projectData.splice(taskIndex, 1);
     }
-    // get element id
-    // find index in project database
     // remove that project
-
-    // remove task with that project tag in task database
 }
 
 function removeProjectTask() {
     // filter for task tag
     // remove task with that tag
+}
+
+export function addDeleteProjectBtnListener(projectData) {
+    const projectsContainer = document.querySelector('.projects-container');
+    projectsContainer.addEventListener('click', (e) => {
+        // find target btn project Id
+        if (e.target.className === 'delete-project') {
+
+            const projectID = e.target.closest('.project-cnt').dataset.id;
+            // console.log(projectID);
+
+            deleteProject(projectID, projectData);
+        }
+    });
 }

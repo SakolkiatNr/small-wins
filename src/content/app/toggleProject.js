@@ -1,4 +1,6 @@
+import { addDeleteProjectBtnListener } from "./projectDelete";
 import { renderProjects } from "./projectNavList";
+
 
 export function openProjectContainer(projectData) {
     // toggle show class
@@ -17,6 +19,9 @@ export function openProjectContainer(projectData) {
                           projectsContainer());
         
         renderProjects(projectData);
+
+        // run active task delete btn event listener here
+        addDeleteProjectBtnListener(projectData);
     }
 }
 
