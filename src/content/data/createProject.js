@@ -1,5 +1,4 @@
 import Project from "./project";
-import { ProjectData } from "./projectData";
 
 function projectNameInput() {
     const target = document.querySelector('.pj-name-input');

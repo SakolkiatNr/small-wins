@@ -11,7 +11,7 @@ export function activeTaskEventHandler(projectData) {
     const newScreen = new Screen(tasks.data);
 
     const container = document.querySelector('.tasks-container');
-    const taskHandler = new TaskCardHandler(tasks, newScreen);
+    const taskHandler = new TaskCardHandler(tasks, newScreen, projectData);
 
     updateContentScreen(newScreen);
     activeAddTaskButton(tasks, projectData);

@@ -2,9 +2,10 @@ import { taskCardElements } from "./taskCard";
 import { editInputContainer } from "../data/editTask";
 
 export default class TaskCardHandler {
-    constructor(TasksData, screen) {
+    constructor(TasksData, screen, projectData) {
         this.tasks = TasksData;
         this.screen = screen;
+        this.projects = projectData
     }
 
     completeTask(taskId) {
@@ -106,7 +107,7 @@ export default class TaskCardHandler {
         if (event.target.closest('.edit-task')) {
             // remove card content and show edit task input
             removeCardElements(taskCard);
-            taskCard.append(editInputContainer());
+            taskCard.append(editInputContainer(this.projects));
 
             // show current task data in edit input
             const taskData = this.getCurrentTaskData(taskId);

@@ -1,15 +1,17 @@
 import { format } from "date-fns";
+import { renderProjectOption } from "./createTask";
 
-export function editInputContainer() {
+
+export function editInputContainer(projectData) {
    // Input container
     const container = document.createElement('form');
     container.classList.add('edit-input-container');
-    container.append(leftContainerElements(), rightContainerElements());
+    container.append(leftContainerElements(projectData), rightContainerElements());
     
     return container; 
 }
 
-function leftContainerElements() {
+function leftContainerElements(projectData) {
     // Left container
     const leftInputContainer = document.createElement('div');
     leftInputContainer.classList.add('text-input-container');
@@ -21,7 +23,7 @@ function leftContainerElements() {
     
     // grouping input container
     leftInputContainer.append(editTitleInput(), editDescInput());
-    leftBtnContainer.append(editDateInput(), editPriorityInput(), editTagInput());        
+    leftBtnContainer.append(editDateInput(), editPriorityInput(), editTagInput(projectData));        
     
     // append input elements
     const leftContainer = document.createElement('div');
@@ -102,16 +104,11 @@ function editPriorityInput() {
     return prioInput;
 }
 
-function editTagInput() {
+function editTagInput(projectData) {
     const tagInput = document.createElement('select');
     tagInput.classList.add('tag-edit');
     
-    const tag1 = document.createElement('option');
-    tag1.textContent = 'Project 1';
-    const tag2 = document.createElement('option');
-    tag2.textContent = 'Project 2';
-
-    tagInput.append(tag1, tag2);
+    renderProjectOption(projectData, tagInput);
     
     return tagInput;
 }

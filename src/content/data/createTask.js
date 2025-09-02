@@ -146,7 +146,7 @@ export function renderAddTask(target, projectData) {
  }
 
 
- function renderProjectOption(projectData, target) {
+export function renderProjectOption(projectData, target) {
     for (const project in projectData) {
         // project is an index, remember!
         // we'll pass projectData as an array
