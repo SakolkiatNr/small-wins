@@ -14,17 +14,18 @@ export default function renderScreen() {
     renderSidebar(target);
     renderContent(contentTarget);
     
-    // active event listener
-    activeTaskEventHandler();
-
+    
     // project Nav handler
     const pjData = new ProjectData();
     const pjBtnHandler = new ProjectButtonsHandler(pjData);
-
+    
     // project input button listener
     document.addEventListener('click', (event) => {
         pjBtnHandler.projectBtn(event);
     })
+
+    // active event listener
+    activeTaskEventHandler(pjData.projects);
 
     // toggle project container
     const projectsBtn = document.querySelector('.project-nav');

@@ -1,7 +1,7 @@
 import { format } from "date-fns";
 
 
-function createInputContainer() {
+function createInputContainer(projectData) {
    // Input container
         const container = document.createElement('form');
         container.classList.add('input-container');
@@ -19,7 +19,7 @@ function createInputContainer() {
         
         // grouping input container
         leftInputContainer.append(titleInput(), descInput());
-        leftBtnContainer.append(dateInput(), priorityInput(), tagInput());
+        leftBtnContainer.append(dateInput(), priorityInput(), tagInput(projectData));
         leftContainer.append(leftInputContainer, leftBtnContainer);
 
 
@@ -94,16 +94,12 @@ export function priorityInput() {
     return prioInput;
 }
 
-export function tagInput() {
+export function tagInput(projectData) {
     const tagInput = document.createElement('select');
     tagInput.classList.add('tag-input');
     
-    const tag1 = document.createElement('option');
-    tag1.textContent = 'Project 1';
-    const tag2 = document.createElement('option');
-    tag2.textContent = 'Project 2';
-
-    tagInput.append(tag1, tag2);
+    // create option element from project database
+    renderProjectOption(projectData, tagInput);
     
     return tagInput;
 }
@@ -143,8 +139,21 @@ function activeCancelBtn() {
     });
  }
 
-export function renderAddTask(target) {
-        const addTaskContainer = createInputContainer();
+export function renderAddTask(target, projectData) {
+        const addTaskContainer = createInputContainer(projectData);
         target.append(addTaskContainer);
         activeCancelBtn();
+ }
+
+
+ function renderProjectOption(projectData, target) {
+    for (const project in projectData) {
+        // project is an index, remember!
+        // we'll pass projectData as an array
+        
+        const tag = document.createElement('option');
+        tag.textContent = projectData[project].name;
+
+        target.append(tag);
+    }
  }
