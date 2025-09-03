@@ -24,7 +24,7 @@ export default class ProjectButtonsHandler {
         const btn = document.createElement('button');
         btn.classList.add('pj-cancel-input');
         btn.setAttribute('id', 'cancel-new-pj');
-        btn.textContent = 'CANCEL';
+        btn.textContent = 'cancel';
 
         return btn; 
     }
@@ -34,20 +34,30 @@ export default class ProjectButtonsHandler {
         btn.classList.add('pj-confirm-input');
         btn.setAttribute('id', 'confirm-new-pj');
         btn.setAttribute('type', 'submit')
-        btn.textContent = 'CONFIRM';
+        btn.textContent = 'confirm';
 
         return btn;
+    }
+
+    newProjectBtnContainer(button1, button2) {
+        const container = document.createElement('div');
+        container.classList.add('new-pj-btn-container');
+
+        container.append(button1, button2);
+
+        return container;
     }
 
     newProjectInputContainer() {
         const container = document.createElement('form');
         container.classList.add('new-pj-container');
 
+        const newPjBtnCnt = this.newProjectBtnContainer(
+            this.newProjectCancelBtn(),
+            this.newProjectConfirmBtn()
+        )
         // append input elements
-        container.append(this.newProjectInput(),
-                        this.newProjectCancelBtn(),
-                        this.newProjectConfirmBtn()
-                        );
+        container.append(this.newProjectInput(), newPjBtnCnt);
 
         return container;
     }

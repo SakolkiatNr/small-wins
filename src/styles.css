@@ -25,7 +25,7 @@
 .logo {
     text-transform: uppercase;
     font-size: 18px;
-    margin: 12px 0px 36px 12px
+    margin: 12px 0px 36px 6px
 }
 
 body {
@@ -45,6 +45,7 @@ body {
     width: 150px;
     height: 100vh;
     /* position: relative; */
+    padding-left: 12px;
 
     box-sizing: border-box;
 }
@@ -56,6 +57,8 @@ body {
     /* font-weight: bold; */
     text-align: left;
     color: var(--sb-btn-font-clr);
+
+    font-size: 16px
 }
 
 .sb-btn:hover {
@@ -64,8 +67,13 @@ body {
     font-weight: bold;
 }
 
+
+
+
+/* PROJECT CONTAINER */
+
 .projects-container {
-    margin-left: 32px;
+    margin-left: 24px;
     /* border: 1px solid red; */
 }
 
@@ -73,6 +81,29 @@ body {
     /* padding: 3px 3px; */
     border: none;
 }
+
+.pj-name-input {
+    width: 114px;
+    border: none;
+    padding: 6px;
+    border-radius: 6px 0px 0px 6px;
+}
+
+.new-pj-container {
+    gap: 0.5em;
+    display: flex;
+    flex-direction: column;
+}
+
+.new-pj-container button {
+    margin-right: 12px;
+    text-transform: capitalize;
+    border: 1px solid black;
+
+    font-weight: bold;
+}
+
+
 
 .project-cnt {
     display: flex;
@@ -100,6 +131,11 @@ body {
     color: var(--sb-btn-font-clr);
 }
 
+
+/* New project button */
+.new-pj-btn {
+    font-weight: bold;
+}
 .project-btn:hover,
 .new-pj-btn:hover {
     background-color: var(--sb-bg-clr-focus);
@@ -110,6 +146,10 @@ body {
 .delete-project {
     padding: 0px 8px;
 }
+
+
+
+
 
 /* CONTENT HEADER */
 
@@ -140,7 +180,9 @@ body {
 
 
 
-/* task input */
+
+
+/* TASK INPUT */
 .input-container,
 .edit-input-container {
     border: 2px solid var(--sb-bg-clr);
@@ -168,6 +210,9 @@ body {
     display: flex;
     box-sizing: content-box;
 }
+
+
+
 
 /* TASK CARD */
 .tasks-container {
@@ -234,7 +279,6 @@ body {
 
 
 /* ADD TASK INPUT CONTAINER */
-
 
 /* title, details container */
 .text-input-container {
