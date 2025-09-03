@@ -65,7 +65,7 @@ function taskPrioElement(taskPrio) {
 function taskTagElement(tagName) {
     const tag = document.createElement('p');
     tag.classList.add('tag');
-    tag.textContent = `#${tagName}`;
+    tag.textContent = `${tagName}`;
 
     return tag;
 }
@@ -109,8 +109,8 @@ export function taskCardElements(obj) {
     // Add task details
     const taskDetail2 = taskSubContainer('task-details-2');
     taskDetail2.append(
-        taskDateElement(obj.date), 
         taskPrioElement(obj.priority),
+        taskDateElement(obj.date), 
         taskTagElement(obj.tag)
     )
 

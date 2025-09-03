@@ -1,3 +1,5 @@
+import { createIcon } from "./createIcon";
+
 function createProjectBtn(projectObj) {
     const btn = document.createElement('button');
     btn.classList.add('project-btn');
@@ -10,6 +12,8 @@ function deleteProjectBtn() {
     const btn = document.createElement('button');
     btn.classList.add('delete-project');    
     btn.textContent = 'X';
+
+    // btn.append(createIcon('remove-icon'));
 
     return btn;
 }

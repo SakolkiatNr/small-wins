@@ -77,17 +77,17 @@ export function priorityInput() {
     const urgentInput = document.createElement('option');
     urgentInput.textContent = 'Urgent';
     urgentInput.classList.add('prio-urgent');
-    urgentInput.value = 'urgent';
+    urgentInput.value = 'Urgent';
 
     const importantInput = document.createElement('option');
     importantInput.classList.add('prio-important');
     importantInput.textContent = 'Important';
-    importantInput.value = 'important';
+    importantInput.value = 'Important';
 
     const optionalInput = document.createElement('option');
     optionalInput.classList.add('prio-optional');
     optionalInput.textContent = 'Optional';
-    optionalInput.value = 'optional';
+    optionalInput.value = 'Optional';
 
     prioInput.append(urgentInput, importantInput, optionalInput);
 
