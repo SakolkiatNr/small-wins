@@ -20,7 +20,7 @@ function taskSubContainer(className) {
 function taskCheckBox() {
     const checkBox = document.createElement('button');
     checkBox.classList.add('task-chbx');
-    checkBox.textContent = 'circle';
+    // checkBox.textContent = 'circle';
 
     return checkBox;
 }
@@ -73,7 +73,8 @@ function taskTagElement(tagName) {
 function editTaskElement() {
     const edit = document.createElement('button');
     edit.classList.add('edit-task');
-    edit.textContent = 'edit';
+    edit.textContent = 'EDIT';
+    // edit.append(createSVG());
 
     return edit;
 }
@@ -81,7 +82,7 @@ function editTaskElement() {
 function removeTaskElement() {
     const remove = document.createElement('button');
     remove.classList.add('remove-task');
-    remove.textContent = 'remove';
+    remove.textContent = 'REMOVE';
 
     return remove;
 }
@@ -128,5 +129,4 @@ export function taskCard(obj) {
 
     return container;
 }
-
 

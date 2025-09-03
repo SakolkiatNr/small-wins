@@ -9,15 +9,23 @@
 }
 
 :root {
+
+    /* sidebar */
     --sb-btn-font-clr: grey;
     --sb-btn-font-focus: black;
 
+    /* sidebar background */
     --sb-bg-clr: rgb(239, 239, 239);
     --sb-bg-clr-focus: rgb(170, 169, 169);
+
+    /* input */
+    --submit-btn-clr: lime;
 }
 
 .logo {
     text-transform: uppercase;
+    font-size: 18px;
+    margin: 12px 0px 36px 12px
 }
 
 body {
@@ -87,7 +95,7 @@ body {
     text-align: left;
     overflow:hidden;
 
-    /* font-weight: bold; */
+    padding: 3px 0px;
     text-align: left;
     color: var(--sb-btn-font-clr);
 }
@@ -103,19 +111,53 @@ body {
     padding: 0px 8px;
 }
 
+/* CONTENT HEADER */
+
+.content-header {
+    margin: 12px 0px 36px 0px;
+    font-size: 18px;
+}
+
+/* ADD TASK BUTTON */
+#new-task-btn {
+
+    background-color: transparent;
+    padding: 12px 36px 12px 0px;
+    border: none;
+    margin-top: 12px;
+    width: 200px;
+    
+    font-weight: bold;
+    font-size: 20px;
+    text-align: left;
+
+    color: var(--sb-bg-clr-focus);
+}
+
+#new-task-btn:hover {
+    color: var(--sb-btn-font-focus);
+}
+
 
 
 /* task input */
-.input-container {
-    border: 1px solid red;
-}
+.input-container,
+.edit-input-container {
+    border: 2px solid var(--sb-bg-clr);
+    border-radius: 8px ;
+    padding: 16px;
 
-.input-container {
     display: flex;
+    justify-content: space-between;
 }
 
+.input-container,
 .btns-input-container {
     display: flex;
+}
+
+.content {
+    margin-left: 24px;
 }
 
 .btns-add-container {
@@ -128,7 +170,126 @@ body {
 }
 
 /* TASK CARD */
-.task-container {
-    border: 1px solid red;
+.tasks-container {
+    /* border: 1px solid blue; */
     display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 70vw;
 }
+
+.task-container {
+    /* border: 1px solid red; */
+    border-bottom: 2px solid var(--sb-bg-clr);
+    padding-bottom: 12px;
+}
+
+.card-elements-cont {
+    display: grid;    
+    grid-template-columns: 50px auto 100px;
+    align-items: center;
+}
+
+/* Task name | Task description */
+.task-details-1 {
+    display: flex;
+    flex-flow: column;
+    /* border: 1px solid red; */
+}
+
+.task-details-1 .title,
+.task-details-1 .desc {
+    white-space: normal;
+    overflow: break-word;
+    /* overflow-wrap: anywhere; */
+}
+
+.task-details-1 .title {
+    font-size: 20px;
+}
+.task-details-1 .desc {
+    font-size: 16px;
+}
+
+
+/* Due date | Priority | Project tag */
+.task-details-2 {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Task button */
+.task-chbx {
+    border: 2px solid var(--sb-bg-clr-focus);
+    border-radius: 50%;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: var(--font-color);
+}
+
+.task-chbx:hover {
+    border-color: var(--submit-btn-clr);
+}
+
+
+
+/* ADD TASK INPUT CONTAINER */
+
+
+/* title, details container */
+.text-input-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.title-input,
+.title-edit {
+    font-size: 20px;
+    font-weight: bold;
+
+    border: none;
+    margin-bottom: 6px;
+}
+
+.desc-input,
+.desc-edit {
+    height: 80px;
+    border: none;
+
+    width: 250px;
+    height: 80px;
+
+    resize: none;
+    margin-bottom: 12px;
+}
+
+/* Buttons input container */
+.btns-input-container.left {
+    display: flex;
+    gap: 12px;
+}
+
+.date-input, .prio-input, .tag-input,
+.date-edit, .prio-edit, .tag-edit {
+    border: none;
+}
+
+/* Input buttons */
+.btn-input-container .cancel-btn,
+.btn-input-container .add-task-btn,
+.btn-input-container .confirm-btn {
+    padding: 6px 12px;
+    margin-right: 12px;
+    
+    border: none;
+    border-radius: 6px;
+
+    font-weight: bold;
+}
+
+/* add/confirm btn */
+.btn-input-container .add-task-btn,
+.btn-input-container .confirm-btn {
+    background-color: var(--submit-btn-clr);
+}
+

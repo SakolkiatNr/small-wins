@@ -39,6 +39,6 @@ export default function renderScreen() {
     projectsBtn.addEventListener('click', () => {
         openProjectContainer(pjData.projects, tasks.data);
     })
-
+    
 
 }

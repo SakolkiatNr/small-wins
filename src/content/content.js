@@ -16,7 +16,8 @@ function taskContainer() {
 function addTaskBtn() {
     const addTask = document.createElement('button')
     addTask.classList.add('add-task-btn');
-    addTask.textContent = 'Add Task';
+    addTask.setAttribute('id', 'new-task-btn');
+    addTask.textContent = '+   Add Task';
 
     return addTask;
 }

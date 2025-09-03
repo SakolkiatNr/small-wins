@@ -59,7 +59,7 @@ function editTitleInput() {
 }
 
 function editDescInput() {
-    const descInput = document.createElement('input');
+    const descInput = document.createElement('textarea');
     descInput.classList.add('desc-edit');
     descInput.placeholder = 'Task Details';
     descInput.setAttribute('type', 'text');

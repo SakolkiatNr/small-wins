@@ -49,9 +49,9 @@ export function titleInput() {
 }
 
 export function descInput() {
-    const descInput = document.createElement('input');
+    const descInput = document.createElement('textarea');
     descInput.classList.add('desc-input');
-    descInput.placeholder = 'Task Details';
+    descInput.placeholder = 'Write something ...';
     descInput.setAttribute('type', 'text');
 
     return descInput;
@@ -64,7 +64,7 @@ export function dateInput() {
     dateInput.classList.add('date-input');
     dateInput.setAttribute('type', 'date');
     dateInput.setAttribute('min', todayDate);
-    // console.log(new Date());
+    dateInput.setAttribute('placeholder', 'Date');
 
     return dateInput;
 }
