@@ -73,8 +73,9 @@ function taskTagElement(tagName) {
 function editTaskElement() {
     const edit = document.createElement('button');
     edit.classList.add('edit-task');
-    edit.textContent = 'EDIT';
-    // edit.append(createSVG());
+    // edit.textContent = '';
+
+    edit.append(createIcon('edit-icon'));
 
     return edit;
 }
@@ -82,8 +83,10 @@ function editTaskElement() {
 function removeTaskElement() {
     const remove = document.createElement('button');
     remove.classList.add('remove-task');
-    remove.textContent = 'REMOVE';
+    // remove.textContent = 'REMOVE';
 
+    remove.append(createIcon('remove-icon'));
+    
     return remove;
 }
 
@@ -130,3 +133,7 @@ export function taskCard(obj) {
     return container;
 }
 
+function createIcon(templateId) {
+    const template = document.getElementById(templateId);
+    return template.content.cloneNode(true);
+}

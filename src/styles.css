@@ -293,3 +293,18 @@ body {
     background-color: var(--submit-btn-clr);
 }
 
+.edit-task,
+.remove-task {
+    width: 18px;
+    background-color: transparent;
+    /* outline: 1px solid red; */
+    border: none;
+    /* padding: ; */
+    margin-right: 12px;
+    fill: grey;
+}
+
+.edit-task:hover,
+.remove-task:hover {
+    fill: black;
+}
