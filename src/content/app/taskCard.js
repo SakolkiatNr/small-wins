@@ -1,5 +1,5 @@
 import { format } from "date-fns";
-
+import { createIcon } from "./createIcon";
 // Task container
 function taskContainer(id) {
     const container = document.createElement('div');
@@ -86,7 +86,7 @@ function removeTaskElement() {
     // remove.textContent = 'REMOVE';
 
     remove.append(createIcon('remove-icon'));
-    
+
     return remove;
 }
 
@@ -131,9 +131,4 @@ export function taskCard(obj) {
     container.append(taskCardElements(obj));
 
     return container;
-}
-
-function createIcon(templateId) {
-    const template = document.getElementById(templateId);
-    return template.content.cloneNode(true);
 }
