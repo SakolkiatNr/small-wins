@@ -1,11 +1,12 @@
 import "./styles.css";
-import renderScreen from "./content/display";
 
 // user data 
 import { ProjectData } from "./content/data/projectData";
 import TasksData from "./content/data/tasks";
-import ProjectButtonsHandler from "./content/app/projectBtnHandler";
+
 import Task from "./content/data/taskData";
+import renderScreen from "./content/display";
+import ProjectButtonsHandler from "./content/app/projectBtnHandler";
 import { openProjectContainer } from "./content/app/toggleProject";
 
 
@@ -77,18 +78,9 @@ document.addEventListener('click', (e)=> {
 
 renderScreen(pjData, tasks);
 
-
-// // toggle project container
-// const projectsBtn = document.querySelector('.project-nav');
-// projectsBtn.addEventListener('click', () => {
-//     openProjectContainer(pjData.projects, tasks.data);
-
-// });
-
-
 const pjBtnHandler = new ProjectButtonsHandler(pjData);
 // project input button listener
 document.addEventListener('click', (event) => {
     pjBtnHandler.projectBtn(event);
     saveUserProjectData();
-})
+});

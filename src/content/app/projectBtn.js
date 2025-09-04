@@ -1,5 +1,3 @@
-import { createIcon } from "./createIcon";
-
 function createProjectBtn(projectObj) {
     const btn = document.createElement('button');
     btn.classList.add('project-btn');
