@@ -24,11 +24,11 @@ export default function renderScreen(projectsData, tasksData) {
     // active task event listener
     activeTaskEventHandler(pjData.projects, tasks, taskHandler, newScreen);
 
-    // toggle project container
-    const projectsBtn = document.querySelector('.project-nav');
-    projectsBtn.addEventListener('click', () => {
-        openProjectContainer(pjData.projects, tasks.data);
-    })
+    // // toggle project container
+    // const projectsBtn = document.querySelector('.project-nav');
+    // projectsBtn.addEventListener('click', () => {
+    //     openProjectContainer(pjData.projects, tasks.data);
+    // });
 
     newScreen.renderDefault();
 }

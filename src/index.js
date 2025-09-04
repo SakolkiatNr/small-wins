@@ -6,6 +6,8 @@ import { ProjectData } from "./content/data/projectData";
 import TasksData from "./content/data/tasks";
 import ProjectButtonsHandler from "./content/app/projectBtnHandler";
 import Task from "./content/data/taskData";
+import { openProjectContainer } from "./content/app/toggleProject";
+
 
 const pjData = new ProjectData()
 const tasks = new TasksData();
@@ -47,6 +49,7 @@ function getUserTasksData() {
     const tasksData    = JSON.parse(storedTasksData);
     // return array
 
+    // restore instance methods
     return tasksData.map(obj => {
         const task = new Task(obj.name, obj.desc, obj.date, obj.priority, obj.tag);
         task.status = obj.status;
@@ -64,9 +67,23 @@ document.addEventListener('click', (e)=> {
     ) {
         saveUserTaskData();
     }
+
+    if (e.target.id === 'project-btn') {
+        console.log('lmao');
+        openProjectContainer(pjData.projects, tasks.data);
+        saveUserTaskData();
+    }
 });
 
 renderScreen(pjData, tasks);
+
+
+// // toggle project container
+// const projectsBtn = document.querySelector('.project-nav');
+// projectsBtn.addEventListener('click', () => {
+//     openProjectContainer(pjData.projects, tasks.data);
+
+// });
 
 
 const pjBtnHandler = new ProjectButtonsHandler(pjData);
