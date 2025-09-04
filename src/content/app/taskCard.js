@@ -14,8 +14,6 @@ function taskSubContainer(className) {
     return container;
 }
 
-
-
 // Task detail element
 function taskCheckBox() {
     const checkBox = document.createElement('button');

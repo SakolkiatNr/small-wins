@@ -1,5 +1,3 @@
-
-
 const LOGO_NAME = 'Small wins';
 
 function createLogo(name) {
@@ -66,7 +64,6 @@ function sidebarBtnsGrp1() {
 
     return [btn1, btn2, btn3, btn4];
 }
-
 
 export default function renderSidebar(target) {
     target.append(createLogo(LOGO_NAME));
