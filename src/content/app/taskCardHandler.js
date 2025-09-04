@@ -79,8 +79,6 @@ export default class TaskCardHandler {
         }
     }
 
-
-
     // CLICK EVENT ACTION
     TaskBtn(event) {
         const taskCard = event.target.closest('.task-container');

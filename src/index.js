@@ -4,6 +4,8 @@ import renderScreen from "./content/display";
 // user data 
 import { ProjectData } from "./content/data/projectData";
 import TasksData from "./content/data/tasks";
+import ProjectButtonsHandler from "./content/app/projectBtnHandler";
+import Task from "./content/data/taskData";
 
 const pjData = new ProjectData()
 const tasks = new TasksData();
@@ -44,32 +46,32 @@ function getUserTasksData() {
     const storedTasksData    = localStorage.getItem('tasks');
     const tasksData    = JSON.parse(storedTasksData);
     // return array
-    return tasksData;
+
+    return tasksData.map(obj => {
+        const task = new Task(obj.name, obj.desc, obj.date, obj.priority, obj.tag);
+        task.status = obj.status;
+        task.id = obj.id;
+        return task;
+    });
 }
 
-
 document.addEventListener('click', (e)=> {
-    if (e.target.id === 'confirm-new-pj' || 
-        e.target.id === 'delete-pj-btn'
+    // when add, edit, remove task -> update data
+    if (e.target.id === 'add-task' ||
+        e.target.closest('.edit-task') ||
+        e.target.closest('.remove-task') ||
+        e.target.closest('.confirm-btn')
     ) {
-        saveUserProjectData();
-    }
-
-    if (e.target.id === 'add-task') {
         saveUserTaskData();
     }
-
-    if (e.target.id === 'edit-task-btn') {
-
-    } 
-
-    if (e.target.id === 'remove-task-btn') {
-
-    }
-
 });
 
+renderScreen(pjData, tasks);
 
 
-
-renderScreen();
+const pjBtnHandler = new ProjectButtonsHandler(pjData);
+// project input button listener
+document.addEventListener('click', (event) => {
+    pjBtnHandler.projectBtn(event);
+    saveUserProjectData();
+})
