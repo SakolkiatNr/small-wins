@@ -371,6 +371,11 @@ body {
     border: none;
 }
 
+/* +Add task button */
+#new-task-btn {
+    font-size: 16px;
+}
+
 /* Input buttons */
 .btn-input-container .cancel-btn,
 .btn-input-container .add-task-btn,
