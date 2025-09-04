@@ -1,14 +1,14 @@
 import renderSidebar from "./sidebar";
 import { renderContent } from "./content";
-import { activeTaskEventHandler } from "./app/TaskEventHandlert";
 
+import TaskCardHandler from "./app/taskCardHandler";
 import ProjectButtonsHandler from "./app/projectBtnHandler";
-import { ProjectData } from "./data/projectData";
+import { activeTaskEventHandler } from "./app/TaskEventHandlert";
 import { openProjectContainer } from "./app/toggleProject";
 
-import TasksData from "./data/tasks";
-import TaskCardHandler from "./app/taskCardHandler";
 import Screen from "./app/screen";
+import TasksData from "./data/tasks";
+import { ProjectData } from "./data/projectData";
 
 export default function renderScreen() {
     const target = document.querySelector('.sidebar');
@@ -38,7 +38,7 @@ export default function renderScreen() {
     const projectsBtn = document.querySelector('.project-nav');
     projectsBtn.addEventListener('click', () => {
         openProjectContainer(pjData.projects, tasks.data);
+        console.log(JSON.stringify(pjData));
     })
     
-
 }
