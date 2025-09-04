@@ -12,6 +12,7 @@ function deleteProjectBtn() {
     const btn = document.createElement('button');
     btn.classList.add('delete-project');    
     btn.textContent = 'X';
+    btn.setAttribute('id', 'delete-pj-btn');
 
     // btn.append(createIcon('remove-icon'));
 

@@ -24,6 +24,7 @@ function removeProjectTask(tasksData, projectName) {
 }
 
 export function addDeleteProjectBtnListener(projectData, tasksData) {
+    // remove project and task related from database
     const projectsContainer = document.querySelector('.projects-container');
     projectsContainer.addEventListener('click', (e) => {
         // find target btn project Id
